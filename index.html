@@ -422,6 +422,142 @@ h1,h2,h3 { font-family: 'Noto Serif JP','Hiragino Mincho ProN',serif; }
   .modal-carousel{height:200px;}
 }
 
+/* ── ゆずる (MARKET) TAB ── */
+.market-hero{background:linear-gradient(160deg,var(--sage) 0%,#3A6248 60%,#2C4D38 100%);padding:40px 24px 32px;text-align:center;color:#fff;}
+.market-hero-inner{max-width:680px;margin:0 auto;}
+.market-hero h2{font-size:24px;font-weight:700;margin-bottom:10px;letter-spacing:.5px;}
+.market-hero p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.7;}
+.market-hero .market-tagline{display:inline-block;font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px;padding:4px 12px;background:rgba(255,255,255,.1);border-radius:12px;}
+.market-stats{display:flex;justify-content:center;gap:32px;margin-top:20px;flex-wrap:wrap;}
+.market-stat{text-align:center;}
+.market-stat-num{font-size:22px;font-weight:700;color:#fff;font-family:'Noto Sans JP',sans-serif;}
+.market-stat-label{font-size:11px;color:rgba(255,255,255,.65);margin-top:2px;letter-spacing:.4px;}
+
+.dummy-banner{background:#FFF8E5;border-bottom:1px solid rgba(232,168,56,.3);padding:10px 20px;text-align:center;font-size:12px;color:#7A5A20;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;}
+.dummy-banner i{color:var(--amber-d);}
+
+.market-content{padding:24px 20px 40px;max-width:1200px;margin:0 auto;}
+.market-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+.market-search-wrap{position:relative;flex:1;min-width:180px;}
+.market-search{width:100%;padding:10px 14px 10px 38px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-family:inherit;background:var(--surface);transition:border-color var(--duration);}
+.market-search:focus{outline:none;border-color:var(--sage);}
+.market-search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-3);font-size:13px;}
+.market-sort{padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-family:inherit;background:var(--surface);cursor:pointer;color:var(--text);}
+.market-sort:focus{outline:none;border-color:var(--sage);}
+.market-post-btn{padding:10px 18px;background:var(--sage);color:#fff;border:none;border-radius:var(--r-sm);font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:filter var(--duration);white-space:nowrap;font-family:inherit;}
+.market-post-btn:hover{filter:brightness(1.08);}
+
+.market-categories{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;}
+.market-categories::-webkit-scrollbar{display:none;}
+.market-cat-chip{padding:8px 16px;border:1.5px solid var(--border);border-radius:var(--r-lg);background:var(--surface);cursor:pointer;font-size:12px;font-weight:600;color:var(--text-2);transition:all var(--duration);white-space:nowrap;display:inline-flex;align-items:center;gap:6px;font-family:inherit;}
+.market-cat-chip i{font-size:11px;}
+.market-cat-chip.active{background:var(--sage);color:#fff;border-color:var(--sage);}
+.market-cat-chip:hover:not(.active){border-color:var(--sage);color:var(--sage);}
+
+.market-result-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:12px;color:var(--text-3);}
+.market-result-count strong{color:var(--text);font-weight:700;}
+
+.item-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;}
+.item-card{background:var(--surface);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:transform var(--duration) var(--ease),box-shadow var(--duration) var(--ease);border:1px solid var(--border-light);position:relative;display:flex;flex-direction:column;}
+.item-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);}
+.item-card.is-sold{opacity:.65;}
+.item-card.is-sold .item-photo::after{content:'SOLD';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.5);color:#fff;font-size:24px;font-weight:800;letter-spacing:4px;font-family:'Noto Sans JP',sans-serif;}
+.item-photo{position:relative;width:100%;aspect-ratio:1/1;background:var(--bg);overflow:hidden;}
+.item-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s var(--ease);}
+.item-card:hover .item-photo img{transform:scale(1.04);}
+.item-fav-btn{position:absolute;top:8px;right:8px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-3);transition:all var(--duration);font-size:14px;backdrop-filter:blur(4px);z-index:2;}
+.item-fav-btn:hover{background:#fff;color:var(--coral);}
+.item-fav-btn.active{color:var(--coral);background:#fff;}
+.item-package-tag{position:absolute;top:8px;left:8px;background:var(--coral);color:#fff;padding:4px 9px;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:.4px;display:inline-flex;align-items:center;gap:4px;z-index:2;}
+.item-condition-tag{position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,.7);color:#fff;padding:3px 9px;border-radius:6px;font-size:10px;font-weight:600;backdrop-filter:blur(4px);z-index:2;}
+.item-info{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1;}
+.item-title{font-size:14px;font-weight:700;color:var(--text);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.8em;}
+.item-price{font-size:20px;font-weight:800;color:var(--coral);font-family:'Noto Sans JP',sans-serif;letter-spacing:-.3px;}
+.item-price .currency{font-size:13px;font-weight:700;margin-right:1px;}
+.item-meta{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-3);margin-top:2px;}
+.item-meta-area{display:inline-flex;align-items:center;gap:3px;}
+.item-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--text-3);}
+.item-urgent{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;background:rgba(232,88,58,.1);color:var(--coral);font-size:10px;font-weight:700;border-radius:6px;margin-top:2px;align-self:flex-start;}
+
+.market-empty{padding:60px 20px;text-align:center;color:var(--text-3);}
+.market-empty i{font-size:36px;margin-bottom:12px;display:block;color:var(--border);}
+.market-empty p{font-size:14px;}
+
+/* Item modal */
+.item-modal-photo-wrap{position:relative;width:100%;aspect-ratio:4/3;background:#1A1A1A;overflow:hidden;}
+.item-modal-photo{width:100%;height:100%;object-fit:contain;background:#1A1A1A;}
+.item-modal-photo-nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;backdrop-filter:blur(4px);transition:background var(--duration);}
+.item-modal-photo-nav:hover{background:rgba(0,0,0,.75);}
+.item-modal-photo-nav.prev{left:12px;}
+.item-modal-photo-nav.next{right:12px;}
+.item-modal-photo-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;}
+.item-modal-photo-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);transition:background var(--duration);}
+.item-modal-photo-dot.active{background:#fff;}
+.item-modal-body{padding:22px 24px 28px;}
+.item-modal-cat-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.item-modal-cat{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;background:var(--bg-elevated);color:var(--text-2);border-radius:12px;font-size:11px;font-weight:700;}
+.item-modal-condition{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:12px;font-size:11px;font-weight:700;}
+.cond-new{background:rgba(74,122,88,.15);color:var(--sage);}
+.cond-good{background:rgba(75,123,187,.15);color:#3A6298;}
+.cond-used{background:rgba(232,168,56,.15);color:var(--amber-d);}
+.cond-junk{background:rgba(140,130,120,.15);color:var(--text-2);}
+.item-modal-title{font-size:22px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:8px;}
+.item-modal-price{font-size:30px;font-weight:800;color:var(--coral);font-family:'Noto Sans JP',sans-serif;margin-bottom:18px;letter-spacing:-.5px;}
+.item-modal-price .currency{font-size:18px;font-weight:700;}
+.item-modal-section{padding:16px 0;border-top:1px solid var(--border-light);}
+.item-modal-section-title{font-size:11px;font-weight:700;color:var(--text-3);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.item-modal-desc{font-size:14px;color:var(--text);line-height:1.75;white-space:pre-wrap;}
+.item-modal-info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;}
+.item-modal-info-item{display:flex;flex-direction:column;gap:3px;}
+.item-modal-info-label{font-size:11px;color:var(--text-3);}
+.item-modal-info-val{font-size:13px;color:var(--text);font-weight:600;}
+.item-modal-package-list{margin-top:8px;display:flex;flex-direction:column;gap:6px;}
+.item-modal-package-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg);border-radius:8px;font-size:13px;color:var(--text);}
+.item-modal-package-item i{color:var(--sage);font-size:11px;}
+.item-modal-seller{display:flex;align-items:center;gap:12px;padding:14px;background:var(--bg);border-radius:var(--r-sm);}
+.item-modal-seller-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px;flex-shrink:0;}
+.item-modal-seller-info{flex:1;min-width:0;}
+.item-modal-seller-name{font-size:14px;font-weight:700;color:var(--text);}
+.item-modal-seller-meta{font-size:11px;color:var(--text-3);margin-top:2px;}
+.item-modal-cta-row{display:flex;gap:10px;margin-top:20px;}
+.item-modal-cta-line{flex:1;padding:14px;background:#06C755;color:#fff;border:none;border-radius:var(--r-sm);font-size:14px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-family:inherit;transition:filter var(--duration);}
+.item-modal-cta-line:hover{filter:brightness(1.08);}
+.item-modal-cta-line i{font-size:16px;}
+.item-modal-cta-fav{padding:14px 18px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;color:var(--text-3);font-size:16px;transition:all var(--duration);}
+.item-modal-cta-fav:hover{border-color:var(--coral);color:var(--coral);}
+.item-modal-cta-fav.active{color:var(--coral);border-color:var(--coral);background:rgba(232,88,58,.05);}
+.item-modal-mine{margin-top:14px;padding:12px;background:var(--bg-elevated);border-radius:var(--r-sm);display:flex;gap:8px;align-items:center;justify-content:center;font-size:12px;color:var(--text-2);}
+.item-modal-mine-actions{display:flex;gap:8px;margin-top:10px;}
+.item-modal-mine-btn{flex:1;padding:10px;border:1.5px solid var(--border);background:var(--surface);border-radius:var(--r-sm);font-size:12px;font-weight:600;cursor:pointer;color:var(--text-2);font-family:inherit;transition:all var(--duration);}
+.item-modal-mine-btn:hover{border-color:var(--text-2);color:var(--text);}
+.item-modal-mine-btn.danger{color:var(--coral);}
+.item-modal-mine-btn.danger:hover{border-color:var(--coral);background:rgba(232,88,58,.05);}
+.item-modal-trust-note{margin-top:14px;padding:12px 14px;background:#F2F7F4;border:1px solid rgba(74,122,88,.2);border-radius:var(--r-sm);font-size:12px;color:#3A5A45;line-height:1.6;display:flex;gap:8px;align-items:flex-start;}
+.item-modal-trust-note i{color:var(--sage);margin-top:2px;flex-shrink:0;}
+
+/* Submit form: market specific */
+.market-form-photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;}
+.market-form-photo-slot{aspect-ratio:1/1;border:2px dashed var(--border);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;color:var(--text-3);cursor:pointer;font-size:11px;transition:all var(--duration);background:var(--bg);}
+.market-form-photo-slot:hover{border-color:var(--sage);color:var(--sage);}
+.market-form-photo-slot i{font-size:16px;}
+.market-form-photo-note{font-size:11px;color:var(--text-3);margin-bottom:14px;text-align:center;padding:10px;background:#FFF8E5;border-radius:var(--r-sm);color:#7A5A20;}
+
+@media(max-width:600px){
+  .item-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .market-content{padding:18px 14px 32px;}
+  .market-hero{padding:30px 18px 24px;}
+  .market-hero h2{font-size:20px;}
+  .market-stat-num{font-size:18px;}
+  .item-title{font-size:13px;}
+  .item-price{font-size:17px;}
+  .item-modal-title{font-size:18px;}
+  .item-modal-price{font-size:24px;}
+  .item-modal-body{padding:18px 18px 24px;}
+  .market-toolbar{gap:8px;}
+  .market-post-btn{padding:9px 14px;font-size:12px;width:100%;justify-content:center;}
+  .market-form-photo-grid{grid-template-columns:repeat(2,1fr);}
+}
+
 /* ── LEAFLET ── */
 .leaflet-popup-content{font-family:'Noto Sans JP',sans-serif;font-size:13px;}
 .popup-title{font-weight:700;font-size:14px;margin-bottom:4px;}
@@ -618,6 +754,7 @@ html { scroll-behavior:smooth; }
   <button class="main-nav-btn" data-section="learn" onclick="setSection('learn')"><i class="fas fa-book-open"></i> 知る</button>
   <button class="main-nav-btn" data-section="explore" onclick="setSection('explore')"><i class="fas fa-magnifying-glass"></i> 探す</button>
   <button class="main-nav-btn" data-section="handover" onclick="setSection('handover')"><i class="fas fa-arrow-right-arrow-left"></i> 引き継ぐ</button>
+  <button class="main-nav-btn" data-section="market" onclick="setSection('market')"><i class="fas fa-tag"></i> ゆずる</button>
 </div>
 
 <!-- ==================== はじめに SECTION ==================== -->
@@ -991,6 +1128,52 @@ html { scroll-behavior:smooth; }
   </div>
 </div>
 
+<!-- ==================== ゆずる SECTION ==================== -->
+<div class="section" id="sectionMarket">
+  <div class="dummy-banner">
+    <i class="fas fa-flask"></i>
+    開発中のデモ版です — 表示されている商品はサンプルデータです。実運用版は近日公開
+  </div>
+  <div class="market-hero">
+    <div class="market-hero-inner">
+      <span class="market-tagline">3rd Place Members Only</span>
+      <h2>使わないモノを、<br>次に来るメンバーへ</h2>
+      <p>帰国前の整理、新生活の準備。コミュニティ内で安心して譲り合えるマーケット。<br>取引はLINEで直接。手数料は一切なし。</p>
+      <div class="market-stats">
+        <div class="market-stat"><div class="market-stat-num" id="marketStatTotal">—</div><div class="market-stat-label">出品中</div></div>
+        <div class="market-stat"><div class="market-stat-num" id="marketStatPackage">—</div><div class="market-stat-label">帰国セット</div></div>
+        <div class="market-stat"><div class="market-stat-num">$0</div><div class="market-stat-label">手数料</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="market-content">
+    <div class="market-toolbar">
+      <div class="market-search-wrap">
+        <i class="fas fa-magnifying-glass market-search-icon"></i>
+        <input type="text" class="market-search" id="marketSearch" placeholder="自転車、炊飯器、布団…" oninput="onMarketSearch(this.value)">
+      </div>
+      <select class="market-sort" id="marketSort" onchange="onMarketSort(this.value)">
+        <option value="new">新着順</option>
+        <option value="cheap">価格が安い順</option>
+        <option value="urgent">引き取り期限が近い順</option>
+      </select>
+      <button class="market-post-btn" onclick="openMarketPostForm()">
+        <i class="fas fa-plus"></i> 出品する
+      </button>
+    </div>
+
+    <div class="market-categories" id="marketCategories"></div>
+
+    <div class="market-result-bar">
+      <div class="market-result-count"><strong id="marketResultCount">0</strong> 件</div>
+      <div id="marketSoldNote"></div>
+    </div>
+
+    <div id="marketGrid" class="item-grid"></div>
+  </div>
+</div>
+
 <!-- Modals -->
 <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()"><div class="modal" id="modalContent"></div></div>
 <div class="admin-overlay" id="adminOverlay" onclick="if(event.target===this)toggleAdmin()">
@@ -1178,6 +1361,7 @@ function setSection(s){
   document.querySelectorAll('.section').forEach(el=>el.classList.remove('active'));
   document.getElementById('section'+s.charAt(0).toUpperCase()+s.slice(1)).classList.add('active');
   if(s==='explore')renderExplore();
+  if(s==='market')renderMarket();
   if(s==='learn'){document.getElementById('industryList').style.display='block';document.getElementById('industryDetail').classList.remove('show');}
 }
 
@@ -1653,8 +1837,385 @@ function rejectSubmission(id){
   pendingSubmissions.splice(idx,1);savePending();updateAdminPendingBadge();renderAdminPending();
 }
 
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeSubmitForm();}});
-renderIndustryGrid();renderZoomEvents();updateFavCount();updateAdminPendingBadge();
+// ═══════════════ ゆずる (MARKET) TAB ═══════════════
+const marketCategories=[
+  {id:'all',label:'すべて',icon:'fa-grip'},
+  {id:'bicycle',label:'自転車',icon:'fa-bicycle'},
+  {id:'electronics',label:'家電',icon:'fa-tv'},
+  {id:'furniture',label:'家具・寝具',icon:'fa-couch'},
+  {id:'kitchen',label:'キッチン',icon:'fa-utensils'},
+  {id:'daily',label:'生活用品',icon:'fa-house-laptop'},
+  {id:'package',label:'帰国セット',icon:'fa-box'},
+];
+const conditionLabels={new:'新品同様',good:'良好',used:'使用感あり',junk:'ジャンク'};
+
+let marketData=[
+  // 自転車
+  {id:'M001',categoryId:'bicycle',title:'シティバイク 24インチ・前カゴ＆鍵2本付き',description:'2年使ってメンテも定期的にしてました。チェーン交換済み。タイヤもまだ十分使えます。前カゴが大きくて買い物に便利。鍵2本付き。\n\n通勤で毎日使ってましたが、帰国するので譲ります。',price:120,photos:['https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&h=600&fit=crop'],condition:'good',area:'Carlton',pickupNote:'平日19時以降 or 週末、Carlton駅周辺で受け渡し可',availableUntil:'2026-06-15',sellerName:'ゆうき',lineId:'yuki_mel_2025',status:'available',isPackage:false,postedAt:'2026-04-15'},
+  {id:'M002',categoryId:'bicycle',title:'クロスバイク GIANT Escape (整備済み)',description:'GIANTのクロスバイク。3年使用、半年前にチェーンとブレーキパッド交換済み。サイズはMで身長165〜180cm向け。LEDライト2個（前後）付属。',price:200,photos:['https://images.unsplash.com/photo-1502744688674-c619d1586c9e?w=600&h=600&fit=crop'],condition:'good',area:'Brunswick',pickupNote:'平日夜・週末いつでもOK',availableUntil:'2026-07-01',sellerName:'りな',lineId:'rina_aus',status:'available',isPackage:false,postedAt:'2026-04-13'},
+  {id:'M003',categoryId:'bicycle',title:'折りたたみ自転車 (アパート住みに最適)',description:'狭いシェアハウスでも玄関に置けるサイズ。1年使用。ややキズあり、走行は問題なし。袋付き。',price:80,photos:['https://images.unsplash.com/photo-1559348349-86f1f65817fe?w=600&h=600&fit=crop'],condition:'used',area:'CBD',pickupNote:'CBDで受け渡し、車で来てもらえると◎',availableUntil:'',sellerName:'たくや',lineId:'taku_melb',status:'available',isPackage:false,postedAt:'2026-04-10'},
+
+  // 家電
+  {id:'M004',categoryId:'electronics',title:'炊飯器 5.5合 (Tiger・日本ブランド)',description:'1年半使用。日本ブランドのTiger製、5.5合炊き。日本米が美味しく炊けます。説明書あり。動作確認済み。',price:40,photos:['https://images.unsplash.com/photo-1585515320310-259814833e62?w=600&h=600&fit=crop'],condition:'good',area:'Footscray',pickupNote:'週末取りに来てくれる方',availableUntil:'2026-06-30',sellerName:'みき',lineId:'miki_japan',status:'available',isPackage:false,postedAt:'2026-04-14'},
+  {id:'M005',categoryId:'electronics',title:'24インチ モニター (HDMI/DP対応)',description:'リモートワークで使ってました。24インチ Full HD、HDMI x2 + DisplayPort。スタンドの高さ調整も可能。動作完璧。',price:150,photos:['https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=600&fit=crop'],condition:'good',area:'Southbank',pickupNote:'CBD/Southbank周辺で受け渡し',availableUntil:'2026-05-25',sellerName:'けんた',lineId:'kenta.dev',status:'available',isPackage:false,postedAt:'2026-04-12'},
+  {id:'M006',categoryId:'electronics',title:'電気ケトル 1.7L (新品同様)',description:'引っ越し前に買って2ヶ月だけ使用。動作問題なし。シンプルなデザインでどんなキッチンにも合います。',price:15,photos:['https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&h=600&fit=crop'],condition:'new',area:'Richmond',pickupNote:'Richmondで受け渡し、平日夜可',availableUntil:'',sellerName:'さき',lineId:'saki_mlb',status:'available',isPackage:false,postedAt:'2026-04-16'},
+  {id:'M007',categoryId:'electronics',title:'ヘアドライヤー (Dyson風・温風強い)',description:'1年使用。風量強めで乾くのが早いです。コード長さ十分。動作問題なし。',price:25,photos:['https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=600&h=600&fit=crop'],condition:'good',area:'St Kilda',pickupNote:'St Kilda周辺で',availableUntil:'2026-05-30',sellerName:'なな',lineId:'nana_st',status:'sold',isPackage:false,postedAt:'2026-04-08'},
+
+  // 家具・寝具
+  {id:'M008',categoryId:'furniture',title:'シングルベッド＋マットレス',description:'IKEAのシングルベッドフレーム＋マットレスのセット。2年使用、シーツも一緒に渡します。マットレスはきれいに使ってました。組み立て式なので分解して持ち帰れます。',price:80,photos:['https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=600&fit=crop'],condition:'used',area:'Brunswick',pickupNote:'車での引き取り必須・運搬手伝います',availableUntil:'2026-06-10',sellerName:'こうき',lineId:'koki_brunswick',status:'available',isPackage:false,postedAt:'2026-04-11'},
+  {id:'M009',categoryId:'furniture',title:'デスクチェア (リモートワーク用)',description:'1年半使用。座り心地良好、長時間作業でも疲れにくい。アーム付き。多少のキズあり。',price:50,photos:['https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop'],condition:'good',area:'CBD',pickupNote:'CBD周辺で',availableUntil:'',sellerName:'ゆうと',lineId:'yuto.cbd',status:'available',isPackage:false,postedAt:'2026-04-09'},
+  {id:'M010',categoryId:'furniture',title:'布団セット (掛け＋敷き＋枕＋カバー)',description:'シングルサイズ一式。クリーニング済み。冬用と夏用の掛け布団2枚あり。日本から持ってきた高品質なやつ。',price:60,photos:['https://images.unsplash.com/photo-1551776235-dde6d482980b?w=600&h=600&fit=crop'],condition:'good',area:'Carlton',pickupNote:'平日夜・週末',availableUntil:'2026-06-20',sellerName:'あや',lineId:'aya_carlton',status:'available',isPackage:false,postedAt:'2026-04-14'},
+
+  // キッチン
+  {id:'M011',categoryId:'kitchen',title:'食器セット (4人分・茶碗・皿・コップ)',description:'4人分の食器一式。茶碗・お椀・大皿・小皿・コップ・マグカップ。日本食用に揃えてました。割れなし。',price:20,photos:['https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=600&h=600&fit=crop'],condition:'good',area:'Footscray',pickupNote:'家まで取りに来てください',availableUntil:'2026-06-15',sellerName:'ひろき',lineId:'hiro_foot',status:'available',isPackage:false,postedAt:'2026-04-13'},
+  {id:'M012',categoryId:'kitchen',title:'フライパン 3点セット (20/24/28cm)',description:'IH対応、3サイズセット。1年半使用。テフロン加工まだ問題なし。蓋は28cmのみ付属。',price:15,photos:['https://images.unsplash.com/photo-1593618998160-e34014e67546?w=600&h=600&fit=crop'],condition:'used',area:'Richmond',pickupNote:'Richmond駅近くで',availableUntil:'',sellerName:'まな',lineId:'mana_kitchen',status:'available',isPackage:false,postedAt:'2026-04-12'},
+  {id:'M013',categoryId:'kitchen',title:'三徳包丁＋まな板＋包丁研ぎ',description:'貝印の三徳包丁、木製まな板（IKEA）、シャープナーの3点セット。包丁は研いだばかりで切れ味抜群。',price:12,photos:['https://images.unsplash.com/photo-1574781330855-d0db8cc6a79c?w=600&h=600&fit=crop'],condition:'good',area:'CBD',pickupNote:'CBD周辺で',availableUntil:'2026-06-01',sellerName:'けい',lineId:'kei_cbd',status:'available',isPackage:false,postedAt:'2026-04-15'},
+
+  // 生活用品
+  {id:'M014',categoryId:'daily',title:'コードレス掃除機 (軽量・スティック型)',description:'スティック型コードレス。バッテリー持ち約30分。1年使用、動作問題なし。シェアハウスでの掃除に最適。',price:40,photos:['https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600&h=600&fit=crop'],condition:'good',area:'St Kilda',pickupNote:'St Kilda周辺で',availableUntil:'',sellerName:'りょう',lineId:'ryo_stkilda',status:'available',isPackage:false,postedAt:'2026-04-10'},
+  {id:'M015',categoryId:'daily',title:'スチームアイロン＋アイロン台',description:'アイロンとアイロン台のセット。週1〜2回しか使ってなかったのでまだ綺麗です。スチーム機能あり。',price:15,photos:['https://images.unsplash.com/photo-1604335398480-1d7e5c1a3567?w=600&h=600&fit=crop'],condition:'good',area:'Brunswick',pickupNote:'平日夜・週末',availableUntil:'2026-05-20',sellerName:'えり',lineId:'eri_brunswick',status:'available',isPackage:false,postedAt:'2026-04-11'},
+
+  // 帰国セット
+  {id:'M016',categoryId:'package',title:'【帰国セット】自転車＋炊飯器＋布団 一式',description:'6月帰国予定。3点まとめてどうぞ。バラ売り合計だと$240ですが、まとめて$200でお譲りします。\n\nメルボルン来てすぐの方にぴったりのスタートセット。',price:200,photos:['https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&h=600&fit=crop'],condition:'good',area:'Carlton',pickupNote:'車2回に分けて取りに来てくれる方優先',availableUntil:'2026-06-15',sellerName:'たけし',lineId:'take_mel',status:'available',isPackage:true,packageItems:['シティバイク（前カゴ付き）','炊飯器 5.5合','布団セット（掛け＋敷き＋枕＋カバー）'],postedAt:'2026-04-16'},
+  {id:'M017',categoryId:'package',title:'【帰国セット】自炊スタートキット (キッチン全部)',description:'これだけあれば自炊スタートできます。フライパン・鍋・包丁・まな板・食器・カトラリー・調味料入れ。リスト要相談で個別調整も可。',price:65,photos:['https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=600&fit=crop'],condition:'good',area:'Footscray',pickupNote:'家まで取りに来てくれる方',availableUntil:'2026-05-31',sellerName:'みお',lineId:'mio_foot',status:'available',isPackage:true,packageItems:['フライパン 24cm（蓋付き）','片手鍋＋両手鍋','三徳包丁＋まな板','食器セット（2人分）','カトラリー（4人分）','調味料入れ・キッチンばさみ'],postedAt:'2026-04-14'},
+  {id:'M018',categoryId:'package',title:'【帰国セット】シェアハウス丸ごと (家電・家具)',description:'1人部屋の家具家電丸ごと。引越しタイミング調整しやすい人優先。高くても良いものをまとめて買えるので渡航直後の方におすすめ。',price:380,photos:['https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop'],condition:'good',area:'Brunswick',pickupNote:'帰国日に部屋ごと引き継ぎたい・要相談',availableUntil:'2026-07-05',sellerName:'しょうた',lineId:'shota_b',status:'available',isPackage:true,packageItems:['シングルベッド＋マットレス','デスク＋チェア','24インチモニター','炊飯器・電子レンジ','掃除機・アイロン','カーテン・電気スタンド'],postedAt:'2026-04-09'},
+];
+
+try{const sm=localStorage.getItem('3p_items');if(sm){const stored=JSON.parse(sm);marketData=[...stored,...marketData.filter(d=>!stored.find(s=>s.id===d.id))];}}catch(e){}
+
+let marketState={category:'all',search:'',sort:'new'};
+
+function escHtml(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function placeholderPhoto(item){const map={bicycle:'自転車',electronics:'家電',furniture:'家具',kitchen:'キッチン',daily:'生活用品'};const label=item.isPackage?'帰国セット':(map[item.categoryId]||'商品');return`https://placehold.co/600x600/EAE0D6/8C8278?text=${encodeURIComponent(label)}`;}
+function formatDate(s){if(!s)return'';const d=new Date(s);if(isNaN(d.getTime()))return s;return`${d.getMonth()+1}月${d.getDate()}日`;}
+function getUrgencyTag(item){if(!item.availableUntil)return'';const days=Math.ceil((new Date(item.availableUntil)-new Date())/(1000*60*60*24));if(days<0)return'';if(days<=7)return`<span class="item-urgent"><i class="fas fa-clock"></i> あと${days}日</span>`;if(days<=21)return`<span class="item-urgent" style="background:rgba(232,168,56,.12);color:var(--amber-d);"><i class="fas fa-clock"></i> あと${days}日</span>`;return'';}
+function getUrgencyShort(s){const days=Math.ceil((new Date(s)-new Date())/(1000*60*60*24));if(days<0)return' <span style="color:var(--text-3);">(過ぎてます)</span>';if(days<=7)return` <span style="color:var(--coral);font-weight:700;">(あと${days}日)</span>`;return'';}
+
+function renderMarketCategories(){
+  document.getElementById('marketCategories').innerHTML=marketCategories.map(c=>`<button class="market-cat-chip ${marketState.category===c.id?'active':''}" onclick="setMarketCategory('${c.id}')"><i class="fas ${c.icon}"></i> ${c.label}</button>`).join('');
+}
+function setMarketCategory(c){marketState.category=c;renderMarketCategories();renderMarket();}
+function onMarketSearch(v){marketState.search=v.toLowerCase().trim();renderMarket();}
+function onMarketSort(v){marketState.sort=v;renderMarket();}
+
+function getFilteredMarket(){
+  let d=[...marketData];
+  if(marketState.category==='package')d=d.filter(i=>i.isPackage);
+  else if(marketState.category!=='all')d=d.filter(i=>i.categoryId===marketState.category);
+  if(marketState.search){
+    const q=marketState.search;
+    d=d.filter(i=>(i.title&&i.title.toLowerCase().includes(q))||(i.description&&i.description.toLowerCase().includes(q))||(i.area&&i.area.toLowerCase().includes(q))||(i.packageItems&&i.packageItems.some(p=>p.toLowerCase().includes(q))));
+  }
+  d.sort((a,b)=>{
+    if(a.status==='sold'&&b.status!=='sold')return 1;
+    if(a.status!=='sold'&&b.status==='sold')return-1;
+    if(marketState.sort==='cheap')return(a.price||0)-(b.price||0);
+    if(marketState.sort==='urgent'){
+      const da=a.availableUntil?new Date(a.availableUntil).getTime():Infinity;
+      const db=b.availableUntil?new Date(b.availableUntil).getTime():Infinity;
+      return da-db;
+    }
+    return new Date(b.postedAt).getTime()-new Date(a.postedAt).getTime();
+  });
+  return d;
+}
+
+function renderMarket(){
+  document.getElementById('marketStatTotal').textContent=marketData.filter(i=>i.status==='available').length;
+  document.getElementById('marketStatPackage').textContent=marketData.filter(i=>i.status==='available'&&i.isPackage).length;
+  const filtered=getFilteredMarket();
+  document.getElementById('marketResultCount').textContent=filtered.length;
+  const soldCount=filtered.filter(i=>i.status==='sold').length;
+  document.getElementById('marketSoldNote').innerHTML=soldCount>0?`<span style="color:var(--text-3);">${soldCount}件のSOLD含む</span>`:'';
+  const grid=document.getElementById('marketGrid');
+  if(!filtered.length){grid.innerHTML=`<div class="market-empty" style="grid-column:1/-1;"><i class="fas fa-tag"></i><p>該当する出品がありません</p></div>`;return;}
+  grid.innerHTML=filtered.map(itemCardHTML).join('');
+}
+
+function itemCardHTML(item){
+  const isFav=favorites.has('item_'+item.id);
+  const isSold=item.status==='sold';
+  const cond=conditionLabels[item.condition]||'';
+  const photo=(item.photos&&item.photos[0])||placeholderPhoto(item);
+  const ph=placeholderPhoto(item);
+  return`
+    <div class="item-card ${isSold?'is-sold':''}" onclick="openItemModal('${item.id}')">
+      <div class="item-photo">
+        <img src="${photo}" alt="${escHtml(item.title)}" loading="lazy" onerror="this.onerror=null;this.src='${ph}';">
+        <button class="item-fav-btn ${isFav?'active':''}" onclick="toggleMarketFav('${item.id}',event)" aria-label="お気に入り"><i class="fa${isFav?'s':'r'} fa-heart"></i></button>
+        ${item.isPackage?`<span class="item-package-tag"><i class="fas fa-box"></i> 帰国セット</span>`:''}
+        ${cond?`<span class="item-condition-tag">${cond}</span>`:''}
+      </div>
+      <div class="item-info">
+        <div class="item-title">${escHtml(item.title)}</div>
+        <div class="item-price"><span class="currency">A$</span>${item.price}</div>
+        <div class="item-meta"><span class="item-meta-area"><i class="fas fa-location-dot"></i> ${escHtml(item.area)}</span></div>
+        ${getUrgencyTag(item)}
+      </div>
+    </div>`;
+}
+
+function toggleMarketFav(id,e){
+  e.stopPropagation();
+  const key='item_'+id;
+  if(favorites.has(key))favorites.delete(key);else favorites.add(key);
+  saveFavs();
+  if(currentSection==='market')renderMarket();
+  updateFavCount();
+  if(currentItemModalId===id)openItemModal(id);
+}
+
+let currentItemModalId=null,itemModalPhotoIdx=0;
+
+function openItemModal(id){
+  const item=marketData.find(i=>i.id===id);if(!item)return;
+  currentItemModalId=id;itemModalPhotoIdx=0;
+  const isFav=favorites.has('item_'+id);
+  const isSold=item.status==='sold';
+  const isMine=!!(item.editToken&&localStorage.getItem('3p_my_item_'+id)===item.editToken);
+  const cond=conditionLabels[item.condition]||'';
+  const condClass=({new:'cond-new',good:'cond-good',used:'cond-used',junk:'cond-junk'})[item.condition]||'';
+  const cat=marketCategories.find(c=>c.id===item.categoryId);
+  const photos=item.photos&&item.photos.length?item.photos:[placeholderPhoto(item)];
+  const ph=placeholderPhoto(item);
+  const lineUrl=item.lineId?(item.lineId.startsWith('http')?item.lineId:`https://line.me/R/ti/p/${encodeURIComponent('@'+item.lineId.replace(/^@/,''))}`):'#';
+  document.getElementById('modalContent').innerHTML=`
+    <button class="modal-close" onclick="closeModal()" aria-label="閉じる">&times;</button>
+    <div class="item-modal-photo-wrap">
+      <img class="item-modal-photo" id="itemModalImg" src="${photos[0]}" alt="${escHtml(item.title)}" onerror="this.onerror=null;this.src='${ph}';">
+      ${photos.length>1?`
+        <button class="item-modal-photo-nav prev" onclick="itemModalPhotoNav(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="item-modal-photo-nav next" onclick="itemModalPhotoNav(1)"><i class="fas fa-chevron-right"></i></button>
+        <div class="item-modal-photo-dots">${photos.map((_,i)=>`<div class="item-modal-photo-dot ${i===0?'active':''}" data-idx="${i}" onclick="itemModalSetPhoto(${i})" style="cursor:pointer;"></div>`).join('')}</div>`:''}
+      ${isSold?`<div style="position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;color:#fff;font-size:48px;font-weight:800;letter-spacing:8px;">SOLD</div>`:''}
+    </div>
+    <div class="item-modal-body">
+      <div class="item-modal-cat-row">
+        ${cat?`<span class="item-modal-cat"><i class="fas ${cat.icon}"></i> ${cat.label}</span>`:''}
+        ${item.isPackage?`<span class="item-modal-cat" style="background:rgba(232,88,58,.1);color:var(--coral);"><i class="fas fa-box"></i> 帰国セット</span>`:''}
+        ${cond?`<span class="item-modal-condition ${condClass}"><i class="fas fa-circle-check"></i> ${cond}</span>`:''}
+      </div>
+      <div class="item-modal-title">${escHtml(item.title)}</div>
+      <div class="item-modal-price"><span class="currency">A$</span>${item.price}</div>
+      <div class="item-modal-section">
+        <div class="item-modal-section-title">商品の説明</div>
+        <div class="item-modal-desc">${escHtml(item.description)}</div>
+      </div>
+      ${item.isPackage&&item.packageItems&&item.packageItems.length?`
+      <div class="item-modal-section">
+        <div class="item-modal-section-title">セット内容</div>
+        <div class="item-modal-package-list">${item.packageItems.map(p=>`<div class="item-modal-package-item"><i class="fas fa-check"></i> ${escHtml(p)}</div>`).join('')}</div>
+      </div>`:''}
+      <div class="item-modal-section">
+        <div class="item-modal-section-title">引き渡し詳細</div>
+        <div class="item-modal-info-grid">
+          <div class="item-modal-info-item"><span class="item-modal-info-label">引き取りエリア</span><span class="item-modal-info-val"><i class="fas fa-location-dot" style="color:var(--text-3);margin-right:4px;"></i>${escHtml(item.area)}</span></div>
+          ${item.availableUntil?`<div class="item-modal-info-item"><span class="item-modal-info-label">引き取り期限</span><span class="item-modal-info-val">${formatDate(item.availableUntil)}${getUrgencyShort(item.availableUntil)}</span></div>`:''}
+          ${item.pickupNote?`<div class="item-modal-info-item" style="grid-column:1/-1;"><span class="item-modal-info-label">受け渡し</span><span class="item-modal-info-val" style="font-weight:500;">${escHtml(item.pickupNote)}</span></div>`:''}
+        </div>
+      </div>
+      <div class="item-modal-section">
+        <div class="item-modal-section-title">出品者</div>
+        <div class="item-modal-seller">
+          <div class="item-modal-seller-avatar" style="background:${avatarColor(item.sellerName)}">${escHtml(item.sellerName[0])}</div>
+          <div class="item-modal-seller-info">
+            <div class="item-modal-seller-name">${escHtml(item.sellerName)}</div>
+            <div class="item-modal-seller-meta">3rd Place メンバー · 出品日 ${formatDate(item.postedAt)}</div>
+          </div>
+        </div>
+      </div>
+      ${isSold?`<div class="item-modal-mine" style="background:rgba(140,130,120,.15);color:var(--text-2);"><i class="fas fa-circle-check"></i> この商品は売却済みです</div>`:`
+        <div class="item-modal-cta-row">
+          <a class="item-modal-cta-line" href="${lineUrl}" target="_blank" rel="noopener"><i class="fab fa-line"></i> LINEで連絡する</a>
+          <button class="item-modal-cta-fav ${isFav?'active':''}" onclick="toggleMarketFav('${id}',event)"><i class="fa${isFav?'s':'r'} fa-heart"></i></button>
+        </div>`}
+      ${isMine?`
+        <div class="item-modal-mine"><i class="fas fa-user-pen"></i> あなたが出品した商品です</div>
+        <div class="item-modal-mine-actions">
+          ${item.status!=='sold'?`<button class="item-modal-mine-btn" onclick="markItemSold('${id}')"><i class="fas fa-check"></i> SOLDにする</button>`:`<button class="item-modal-mine-btn" onclick="markItemAvailable('${id}')"><i class="fas fa-rotate-left"></i> 出品中に戻す</button>`}
+          <button class="item-modal-mine-btn danger" onclick="deleteItem('${id}')"><i class="fas fa-trash"></i> 削除</button>
+        </div>`:''}
+      <div class="item-modal-trust-note">
+        <i class="fas fa-shield-halved"></i>
+        <div>取引はメンバー同士で直接行います。商品を必ず確認してから受け渡し・支払いをしましょう。3rd Place運営は取引には介入しません。</div>
+      </div>
+    </div>`;
+  document.getElementById('modalOverlay').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+function itemModalPhotoNav(d){
+  const item=marketData.find(i=>i.id===currentItemModalId);if(!item)return;
+  const photos=item.photos&&item.photos.length?item.photos:[placeholderPhoto(item)];
+  itemModalPhotoIdx=(itemModalPhotoIdx+d+photos.length)%photos.length;
+  itemModalSetPhoto(itemModalPhotoIdx);
+}
+function itemModalSetPhoto(i){
+  const item=marketData.find(it=>it.id===currentItemModalId);if(!item)return;
+  const photos=item.photos&&item.photos.length?item.photos:[placeholderPhoto(item)];
+  itemModalPhotoIdx=i;
+  document.getElementById('itemModalImg').src=photos[i];
+  document.querySelectorAll('.item-modal-photo-dot').forEach((d,idx)=>d.classList.toggle('active',idx===i));
+}
+
+function saveMarketData(){
+  const userItems=marketData.filter(i=>i.editToken);
+  localStorage.setItem('3p_items',JSON.stringify(userItems));
+}
+function markItemSold(id){const item=marketData.find(i=>i.id===id);if(!item)return;item.status='sold';saveMarketData();renderMarket();closeModal();}
+function markItemAvailable(id){const item=marketData.find(i=>i.id===id);if(!item)return;item.status='available';saveMarketData();renderMarket();closeModal();}
+function deleteItem(id){if(!confirm('この出品を削除しますか？'))return;const idx=marketData.findIndex(i=>i.id===id);if(idx===-1)return;marketData.splice(idx,1);localStorage.removeItem('3p_my_item_'+id);saveMarketData();renderMarket();closeModal();}
+
+// ── Post form ──
+let marketSubmitData={},marketSubmitStep=1;
+function openMarketPostForm(){marketSubmitData={category:'',condition:'',area:'',isPackage:false};marketSubmitStep=1;document.getElementById('submitOverlay').classList.add('show');document.body.style.overflow='hidden';renderMarketSubmitStep();}
+function closeMarketSubmit(){document.getElementById('submitOverlay').classList.remove('show');document.body.style.overflow='';marketSubmitData={};marketSubmitStep=1;}
+
+function renderMarketSubmitStep(){
+  const c=document.getElementById('submitModalContent');
+  const dots=`<div class="form-progress"><div class="form-step-dot ${marketSubmitStep>=1?'active':''}"></div><div class="form-step-dot ${marketSubmitStep>=2?'active':''}"></div><div class="form-step-dot ${marketSubmitStep>=3?'active':''}"></div></div>`;
+  const header=`<div class="submit-modal-header"><div class="submit-modal-title"><i class="fas fa-tag"></i> 出品する</div><button class="submit-modal-close" onclick="closeMarketSubmit()">×</button></div>`;
+  if(marketSubmitStep===1){
+    c.innerHTML=header+dots+`
+      <div class="submit-form-body" style="overflow-y:auto;flex:1;padding:20px 22px;">
+        <div class="market-form-photo-note"><i class="fas fa-flask"></i> ダミーモード: 写真アップロードは本番版で実装します</div>
+        <div class="market-form-photo-grid">
+          <div class="market-form-photo-slot"><i class="fas fa-camera"></i><span>メイン</span></div>
+          <div class="market-form-photo-slot"><i class="fas fa-camera"></i><span>追加</span></div>
+          <div class="market-form-photo-slot"><i class="fas fa-camera"></i><span>追加</span></div>
+          <div class="market-form-photo-slot"><i class="fas fa-camera"></i><span>追加</span></div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">タイトル <span style="color:var(--coral);">*</span></label>
+          <input type="text" class="market-search" style="padding-left:14px;" placeholder="例: シティバイク 24インチ 前カゴ付き" value="${escHtml(marketSubmitData.title||'')}" oninput="marketSubmitData.title=this.value">
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">カテゴリ <span style="color:var(--coral);">*</span></label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            ${marketCategories.filter(c=>c.id!=='all').map(c=>`<button type="button" class="market-cat-chip ${marketSubmitData.category===c.id?'active':''}" onclick="marketSubmitData.category='${c.id}';marketSubmitData.isPackage=${c.id==='package'};renderMarketSubmitStep();"><i class="fas ${c.icon}"></i> ${c.label}</button>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div style="padding:14px 22px;border-top:1px solid var(--border-light);display:flex;justify-content:flex-end;gap:10px;">
+        <button onclick="marketSubmitNext()" style="padding:11px 22px;background:var(--sage);color:#fff;border:none;border-radius:var(--r-sm);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">次へ <i class="fas fa-chevron-right" style="margin-left:4px;"></i></button>
+      </div>`;
+  } else if(marketSubmitStep===2){
+    c.innerHTML=header+dots+`
+      <div class="submit-form-body" style="overflow-y:auto;flex:1;padding:20px 22px;">
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">価格 (AUD) <span style="color:var(--coral);">*</span></label>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:18px;font-weight:700;color:var(--text-2);">A$</span><input type="number" class="market-search" style="padding-left:14px;" placeholder="例: 120" value="${marketSubmitData.price||''}" oninput="marketSubmitData.price=parseInt(this.value)||0"></div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">商品の状態 <span style="color:var(--coral);">*</span></label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            ${Object.entries(conditionLabels).map(([k,v])=>`<button type="button" class="market-cat-chip ${marketSubmitData.condition===k?'active':''}" onclick="marketSubmitData.condition='${k}';renderMarketSubmitStep();">${v}</button>`).join('')}
+          </div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">商品の説明 <span style="color:var(--coral);">*</span></label>
+          <textarea class="market-search" style="padding:10px 14px;width:100%;min-height:100px;font-family:inherit;resize:vertical;" placeholder="使用期間、状態、付属品、購入時の価格など…" oninput="marketSubmitData.description=this.value">${escHtml(marketSubmitData.description||'')}</textarea>
+        </div>
+        ${marketSubmitData.isPackage?`
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">セット内容（1行ずつ）</label>
+          <textarea class="market-search" style="padding:10px 14px;width:100%;min-height:80px;font-family:inherit;resize:vertical;" placeholder="自転車&#10;炊飯器&#10;布団セット" oninput="marketSubmitData.packageItemsRaw=this.value">${escHtml(marketSubmitData.packageItemsRaw||'')}</textarea>
+        </div>`:''}
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">引き取りエリア <span style="color:var(--coral);">*</span></label>
+          <input type="text" class="market-search" style="padding-left:14px;" placeholder="例: Carlton, CBD, Brunswick" value="${escHtml(marketSubmitData.area||'')}" oninput="marketSubmitData.area=this.value">
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">受け渡しについて</label>
+          <input type="text" class="market-search" style="padding-left:14px;" placeholder="例: 平日夜or週末、駅周辺で受け渡し可" value="${escHtml(marketSubmitData.pickupNote||'')}" oninput="marketSubmitData.pickupNote=this.value">
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">引き取り期限（任意・帰国日など）</label>
+          <input type="date" class="market-search" style="padding-left:14px;" value="${marketSubmitData.availableUntil||''}" oninput="marketSubmitData.availableUntil=this.value">
+        </div>
+      </div>
+      <div style="padding:14px 22px;border-top:1px solid var(--border-light);display:flex;justify-content:space-between;gap:10px;">
+        <button onclick="marketSubmitBack()" style="padding:11px 18px;background:var(--surface);color:var(--text-2);border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;"><i class="fas fa-chevron-left" style="margin-right:4px;"></i> 戻る</button>
+        <button onclick="marketSubmitNext()" style="padding:11px 22px;background:var(--sage);color:#fff;border:none;border-radius:var(--r-sm);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">次へ <i class="fas fa-chevron-right" style="margin-left:4px;"></i></button>
+      </div>`;
+  } else if(marketSubmitStep===3){
+    c.innerHTML=header+dots+`
+      <div class="submit-form-body" style="overflow-y:auto;flex:1;padding:20px 22px;">
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">あなたの名前（ニックネーム可） <span style="color:var(--coral);">*</span></label>
+          <input type="text" class="market-search" style="padding-left:14px;" placeholder="例: ゆうき" value="${escHtml(marketSubmitData.sellerName||'')}" oninput="marketSubmitData.sellerName=this.value">
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:6px;">LINE ID または LINEのURL <span style="color:var(--coral);">*</span></label>
+          <input type="text" class="market-search" style="padding-left:14px;" placeholder="例: yuki_mel または https://line.me/ti/p/...." value="${escHtml(marketSubmitData.lineId||'')}" oninput="marketSubmitData.lineId=this.value">
+          <div style="font-size:11px;color:var(--text-3);margin-top:6px;line-height:1.5;">買い手から直接LINEで連絡が来ます。公開されてもいいIDを入れてください。</div>
+        </div>
+        <div style="background:var(--bg);border-radius:var(--r-sm);padding:14px;margin-bottom:14px;">
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px;"><i class="fas fa-circle-check" style="color:var(--sage);"></i> 出品内容の確認</div>
+          <div style="font-size:13px;color:var(--text-2);line-height:1.7;"><div><strong style="color:var(--text);">${escHtml(marketSubmitData.title||'(無題)')}</strong></div><div>A$${marketSubmitData.price||0} · ${conditionLabels[marketSubmitData.condition]||'状態未選択'} · ${escHtml(marketSubmitData.area||'')}</div></div>
+        </div>
+        <div style="background:#FFF8E5;border-radius:var(--r-sm);padding:14px;margin-bottom:14px;">
+          <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;">
+            <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;cursor:pointer;" ${marketSubmitData.agreed?'checked':''} onchange="marketSubmitData.agreed=this.checked;">
+            <span style="font-size:12px;color:#7A5A20;line-height:1.7;"><strong style="color:#5C3A14;">出品ルールに同意します:</strong><br>・違法品・危険物・偽ブランド品は出品しません<br>・取引のトラブルは当事者間で解決します（運営は仲介しません）<br>・運営は不適切な出品を予告なく削除する権利があります</span>
+          </label>
+        </div>
+      </div>
+      <div style="padding:14px 22px;border-top:1px solid var(--border-light);display:flex;justify-content:space-between;gap:10px;">
+        <button onclick="marketSubmitBack()" style="padding:11px 18px;background:var(--surface);color:var(--text-2);border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;"><i class="fas fa-chevron-left" style="margin-right:4px;"></i> 戻る</button>
+        <button onclick="marketSubmitFinish()" style="padding:11px 22px;background:var(--sage);color:#fff;border:none;border-radius:var(--r-sm);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;"><i class="fas fa-paper-plane" style="margin-right:6px;"></i> 出品する</button>
+      </div>`;
+  }
+}
+
+function marketSubmitNext(){
+  if(marketSubmitStep===1){if(!marketSubmitData.title){alert('タイトルを入力してください');return;}if(!marketSubmitData.category){alert('カテゴリを選択してください');return;}}
+  else if(marketSubmitStep===2){if(!marketSubmitData.price){alert('価格を入力してください');return;}if(!marketSubmitData.condition){alert('状態を選択してください');return;}if(!marketSubmitData.description){alert('説明を入力してください');return;}if(!marketSubmitData.area){alert('エリアを入力してください');return;}}
+  marketSubmitStep++;renderMarketSubmitStep();
+}
+function marketSubmitBack(){marketSubmitStep--;renderMarketSubmitStep();}
+
+function marketSubmitFinish(){
+  if(!marketSubmitData.sellerName){alert('お名前を入力してください');return;}
+  if(!marketSubmitData.lineId){alert('LINE IDを入力してください');return;}
+  if(!marketSubmitData.agreed){alert('出品ルールへの同意が必要です');return;}
+  const id='M'+Date.now().toString(36).toUpperCase();
+  const editToken=Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2);
+  const item={
+    id,editToken,
+    categoryId:marketSubmitData.category,
+    title:marketSubmitData.title,
+    description:marketSubmitData.description,
+    price:marketSubmitData.price,
+    condition:marketSubmitData.condition,
+    area:marketSubmitData.area,
+    pickupNote:marketSubmitData.pickupNote||'',
+    availableUntil:marketSubmitData.availableUntil||'',
+    sellerName:marketSubmitData.sellerName,
+    lineId:marketSubmitData.lineId,
+    isPackage:!!marketSubmitData.isPackage,
+    packageItems:marketSubmitData.packageItemsRaw?marketSubmitData.packageItemsRaw.split('\n').map(s=>s.trim()).filter(s=>s):[],
+    photos:[],
+    status:'available',
+    postedAt:new Date().toISOString().slice(0,10)
+  };
+  marketData.unshift(item);
+  localStorage.setItem('3p_my_item_'+id,editToken);
+  saveMarketData();
+  renderMarket();
+  document.getElementById('submitModalContent').innerHTML=`
+    <div class="submit-modal-header"><div class="submit-modal-title"><i class="fas fa-check-circle" style="color:var(--sage);"></i> 出品完了</div><button class="submit-modal-close" onclick="closeMarketSubmit()">×</button></div>
+    <div class="submit-form-body" style="padding:40px 24px;text-align:center;">
+      <div style="width:64px;height:64px;border-radius:50%;background:rgba(74,122,88,.15);color:var(--sage);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px;"><i class="fas fa-check"></i></div>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:10px;">出品しました！</h3>
+      <p style="font-size:13px;color:var(--text-2);line-height:1.7;">買い手からLINEで直接連絡が来ます。<br>売れたら商品ページから「SOLD」マークしてください。</p>
+      <div style="margin-top:18px;padding:12px;background:#FFF8E5;border-radius:8px;font-size:11px;color:#7A5A20;line-height:1.6;"><i class="fas fa-flask"></i> ダミーモード: この出品はあなたの端末にのみ保存されます</div>
+    </div>
+    <div style="padding:14px 22px;display:flex;justify-content:center;"><button onclick="closeMarketSubmit()" style="padding:12px 30px;background:var(--sage);color:#fff;border:none;border-radius:var(--r-sm);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">閉じる</button></div>`;
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeSubmitForm();closeMarketSubmit();}});
+renderIndustryGrid();renderZoomEvents();updateFavCount();updateAdminPendingBadge();renderMarketCategories();
 </script>
 </body>
 </html>
