@@ -21,6 +21,8 @@
   --amber: #E8A838;
   --amber-d: #C88820;
   --sage: #4A7A58;
+  --sage-dark: #2a5a3a;
+  --sage-darker: #1a3a2a;
   --brown: #3D1E0A;
 
   /* ── Neutrals ── */
@@ -38,13 +40,11 @@
   --sh: 0 2px 8px rgba(26,14,6,.06);
   --sh-md: 0 4px 16px rgba(26,14,6,.08);
   --sh-lg: 0 8px 32px rgba(26,14,6,.12);
-  --sh-h: 0 8px 32px rgba(26,14,6,.12);
 
   /* ── Radius (3 levels) ── */
   --r-sm: 8px;
   --r: 14px;
   --r-lg: 20px;
-  --rs: 10px;
 
   /* ── Freshness ── */
   --fresh: #4A7A58;
@@ -253,8 +253,12 @@ h1,h2,h3 { font-family: 'Noto Serif JP','Hiragino Mincho ProN',serif; }
 .badge-status.recruiting, .badge-status.available { background:rgba(232,88,58,.85); }
 .badge-status.stocked, .badge-status.notes_only { background:rgba(27,45,91,.85); }
 .badge-status.developing, .badge-status.member_working { background:rgba(232,168,56,.92); color:var(--text); }
-.badge-status.baton_recruiting { background:rgba(232,88,58,.92); animation:pulse 2s ease-in-out infinite; }
+.badge-status.baton_recruiting { background:rgba(232,88,58,.92); animation:glowPulse 2.4s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.8} }
+@keyframes glowPulse { 0%,100%{box-shadow:0 0 0 0 rgba(232,88,58,0);} 50%{box-shadow:0 0 14px 3px rgba(232,88,58,.55);} }
+@keyframes favBounce { 0%{transform:scale(1);} 30%{transform:scale(1.35);} 60%{transform:scale(.92);} 100%{transform:scale(1);} }
+.card.card-recruiting { border-left:4px solid var(--coral); }
+.fav-btn.active { animation:favBounce .45s var(--ease); }
 .badge-price { position:absolute; bottom:12px; right:12px; background:rgba(20,10,4,.6); backdrop-filter:blur(10px); color:#fff; padding:5px 12px; border-radius:var(--r-lg); font-size:13px; font-weight:700; }
 .fav-btn { position:absolute; top:10px; right:10px; width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.9); backdrop-filter:blur(8px); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:16px; transition:transform var(--duration) var(--ease); box-shadow:var(--sh-sm); z-index:2; }
 .fav-btn:hover { transform:scale(1.1); }
@@ -292,7 +296,7 @@ h1,h2,h3 { font-family: 'Noto Serif JP','Hiragino Mincho ProN',serif; }
 
 /* ── 引き継ぐ TAB ── */
 .handover-content { padding:32px 24px; max-width:800px; margin:0 auto; }
-.handover-hero { background:linear-gradient(135deg,#1a3a2a,#2a5a3a); color:#fff; padding:40px 24px 36px; text-align:center; }
+.handover-hero { background:linear-gradient(135deg,var(--sage-darker),var(--sage-dark)); color:#fff; padding:40px 24px 36px; text-align:center; }
 .handover-hero h2 { font-size:24px; font-weight:700; margin-bottom:10px; line-height:1.4; }
 .handover-hero p { font-size:14px; color:rgba(255,255,255,.75); line-height:1.7; }
 .handover-steps { display:flex; flex-direction:column; gap:14px; margin-bottom:36px; }
@@ -629,12 +633,16 @@ h1,h2,h3 { font-family: 'Noto Serif JP','Hiragino Mincho ProN',serif; }
 @media(max-width:480px){.handover-action-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}.form-toggles{grid-template-columns:1fr;}}
 
 /* ── はじめに PAGE ── */
-.guide-hero-new{background:linear-gradient(160deg,var(--header) 0%,var(--header-dark) 60%,#0F1A38 100%);padding:48px 24px 40px;text-align:center;}
-.guide-hero-new h1{font-size:28px;font-weight:700;color:#fff;margin-bottom:24px;line-height:1.4;letter-spacing:.3px;}
-.flow-steps{display:flex;align-items:center;justify-content:center;gap:0;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.guide-hero-new{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--header) 0%,var(--header-dark) 60%,#0F1A38 100%);padding:48px 24px 40px;text-align:center;}
+.guide-hero-new::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(232,168,56,.35) 0%,rgba(232,88,58,.15) 45%,transparent 70%);filter:blur(40px);pointer-events:none;opacity:.9;}
+.guide-hero-new::after{content:'';position:absolute;bottom:-60px;left:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(232,168,56,.25) 0%,transparent 65%);filter:blur(40px);pointer-events:none;}
+.guide-hero-new > *{position:relative;z-index:1;}
+.guide-hero-new h1{font-size:28px;font-weight:700;color:#fff;margin-bottom:24px;line-height:1.4;letter-spacing:.3px;animation:fadeInUp .8s var(--ease) both;}
+.flow-steps{display:flex;align-items:center;justify-content:center;gap:0;animation:fadeInUp .8s .15s var(--ease) both;}
 .flow-step{display:flex;flex-direction:column;align-items:center;gap:10px;padding:8px 20px;}
-.flow-step-icon{width:56px;height:56px;border-radius:var(--r);background:rgba(255,255,255,.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;transition:background var(--duration);}
-.flow-step:hover .flow-step-icon{background:rgba(255,255,255,.2);}
+.flow-step-icon{width:56px;height:56px;border-radius:var(--r);background:rgba(255,255,255,.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;transition:background var(--duration) var(--ease),transform var(--duration) var(--ease),box-shadow var(--duration) var(--ease);}
+.flow-step:hover .flow-step-icon{background:rgba(232,168,56,.25);transform:translateY(-3px) scale(1.08);box-shadow:0 8px 20px rgba(232,168,56,.25);}
 .flow-step-label{font-size:13px;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.3px;}
 .flow-arrow{color:rgba(255,255,255,.25);font-size:12px;margin-bottom:24px;}
 .feature-section{padding:32px 20px 12px;}
@@ -1477,12 +1485,12 @@ function renderCards(items){
   const grid=document.getElementById('cardGrid'),isFav=id=>favorites.has(id);
   if(currentMode==='housing'){
     grid.innerHTML=items.map(h=>`
-      <div class="card ${freshnessCardClass(h.lastUpdated)}" onclick="openHousingModal('${h.id}')">
+      <div class="card ${freshnessCardClass(h.lastUpdated)} ${h.status==='baton_recruiting'?'card-recruiting':''}" onclick="openHousingModal('${h.id}')">
         <div class="card-photo">
           ${h.photos?.length?`<img src="${h.photos[0]}" alt="${h.address}" loading="lazy">`:`<div class="card-photo-placeholder"><i class="fas fa-house"></i></div>`}
           <span class="badge-status ${statusClass(h.status)}">${statusLabel(h.status)}</span>
           <span class="badge-price">A$${h.rent}/w</span>
-          <button class="fav-btn" onclick="toggleFav('${h.id}',event)"><i class="${isFav(h.id)?'fas':'far'} fa-heart"></i></button>
+          <button class="fav-btn ${isFav(h.id)?'active':''}" onclick="toggleFav('${h.id}',event)"><i class="${isFav(h.id)?'fas':'far'} fa-heart"></i></button>
         </div>
         <div class="card-body">
           <div class="card-meta"><span>${h.type} · ${h.area}</span><span class="freshness-tag ${freshnessClass(h.lastUpdated)}">${freshnessLabel(h.lastUpdated)}</span></div>
@@ -1501,12 +1509,12 @@ function renderCards(items){
       </div>`).join('');
   }else{
     grid.innerHTML=items.map(j=>`
-      <div class="card ${freshnessCardClass(j.lastUpdated)}" onclick="openJobModal('${j.id}')">
+      <div class="card ${freshnessCardClass(j.lastUpdated)} ${j.status==='baton_recruiting'?'card-recruiting':''}" onclick="openJobModal('${j.id}')">
         <div class="card-photo">
           ${j.photos?.length?`<img src="${j.photos[0]}" alt="${j.name}" loading="lazy">`:`<div class="card-photo-placeholder"><i class="fas ${industryIcon(j.industry)}"></i></div>`}
           <span class="badge-status ${statusClass(j.status)}">${statusLabel(j.status)}</span>
           <span class="badge-price">${j.payRange}/h</span>
-          <button class="fav-btn" onclick="toggleFav('${j.id}',event)"><i class="${isFav(j.id)?'fas':'far'} fa-heart"></i></button>
+          <button class="fav-btn ${isFav(j.id)?'active':''}" onclick="toggleFav('${j.id}',event)"><i class="${isFav(j.id)?'fas':'far'} fa-heart"></i></button>
         </div>
         <div class="card-body">
           <div class="card-meta"><span>${j.industry}</span><span class="freshness-tag ${freshnessClass(j.lastUpdated)}">${freshnessLabel(j.lastUpdated)}</span></div>
