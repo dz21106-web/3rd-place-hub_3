@@ -203,6 +203,152 @@ h1,h2,h3 { font-family: 'Noto Serif JP','Hiragino Mincho ProN',serif; }
 .zoom-meta { font-size:12px; color:var(--text-2); margin-top:3px; }
 .zoom-badge { padding:5px 12px; background:rgba(27,45,91,.06); color:var(--navy); border-radius:var(--r-lg); font-size:11px; font-weight:700; white-space:nowrap; }
 
+/* ── 知る TAB: メンバー投稿機能 ── */
+.learn-topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:8px; flex-wrap:wrap; }
+.learn-intro { font-size:13px; color:var(--text-2); line-height:1.7; margin-bottom:24px; }
+.contribute-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:11px 20px; background:var(--coral); color:#fff;
+  border:none; border-radius:var(--r-sm); font-size:13px; font-weight:700;
+  cursor:pointer; transition:transform var(--duration) var(--ease),box-shadow var(--duration),background var(--duration);
+  box-shadow:0 2px 6px rgba(232,88,58,.25);
+}
+.contribute-btn:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(232,88,58,.35); background:#d84828; }
+.contribute-btn-small { padding:9px 16px; font-size:12px; }
+
+.industry-card { position:relative; }
+.industry-card-new {
+  position:absolute; top:14px; right:14px;
+  padding:3px 8px; background:var(--coral); color:#fff;
+  border-radius:var(--r-sm); font-size:10px; font-weight:800; letter-spacing:.5px;
+  animation:glowPulse 2.2s var(--ease) infinite;
+}
+
+/* 業界詳細: 自動集計サマリー */
+.industry-aggregate {
+  background:linear-gradient(135deg,rgba(27,45,91,.03) 0%,rgba(232,168,56,.05) 100%);
+  border:1px solid var(--border-light); border-radius:var(--r); padding:20px 22px; margin-bottom:24px;
+}
+.industry-aggregate-heading {
+  font-size:12px; font-weight:700; color:var(--navy); letter-spacing:.4px;
+  margin-bottom:14px; display:flex; align-items:center; gap:8px;
+}
+.industry-aggregate-heading i { color:var(--amber); }
+.industry-aggregate .data-summary { margin-bottom:0; }
+.industry-aggregate-empty-msg { font-size:13px; color:var(--text-2); line-height:1.7; }
+
+/* 業界詳細: 投稿ボタン（ヘッダー内） */
+.detail-header .contribute-btn { margin-top:14px; }
+
+/* メンバーの声 セクション */
+.contribution-heading { margin-top:8px; margin-bottom:16px; }
+.contribution-list { display:grid; grid-template-columns:1fr; gap:14px; margin-bottom:28px; }
+.contribution-card {
+  background:var(--surface); border-radius:var(--r); padding:22px;
+  box-shadow:var(--sh-sm); border:1px solid var(--border-light);
+  transition:box-shadow var(--duration),transform var(--duration) var(--ease);
+}
+.contribution-card:hover { box-shadow:var(--sh); transform:translateY(-1px); }
+.contribution-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.contribution-avatar {
+  width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:16px; font-weight:700; color:#fff; flex-shrink:0;
+}
+.contribution-meta { flex:1; min-width:0; }
+.contribution-name {
+  font-size:14px; font-weight:700; color:var(--text);
+  display:flex; align-items:center; gap:8px;
+}
+.contribution-sub { font-size:12px; color:var(--text-3); margin-top:3px; }
+.contribution-new-badge {
+  padding:2px 7px; background:var(--coral); color:#fff;
+  border-radius:var(--r-sm); font-size:9px; font-weight:800; letter-spacing:.5px;
+}
+.contribution-field { margin-top:14px; padding-top:14px; border-top:1px dashed var(--border-light); }
+.contribution-field:first-of-type { margin-top:0; padding-top:0; border-top:none; }
+.contribution-field-label {
+  font-size:11px; font-weight:700; color:var(--navy); letter-spacing:.4px;
+  margin-bottom:6px; display:flex; align-items:center; gap:6px;
+}
+.contribution-field-label i { color:var(--amber); font-size:12px; }
+.contribution-field-body { font-size:13px; color:var(--text); line-height:1.75; white-space:pre-wrap; }
+.contribution-wage { padding:16px 20px; }
+.contribution-wage .contribution-header { margin-bottom:8px; }
+.contribution-tag {
+  display:inline-flex; align-items:center; gap:5px;
+  padding:3px 9px; background:rgba(27,45,91,.06); color:var(--navy);
+  border-radius:var(--r-sm); font-size:11px; font-weight:700;
+}
+.contribution-empty {
+  text-align:center; padding:40px 20px; background:var(--surface);
+  border:1px dashed var(--border); border-radius:var(--r); margin-bottom:28px;
+}
+.contribution-empty i { font-size:28px; color:var(--text-3); margin-bottom:10px; }
+.contribution-empty p { font-size:14px; font-weight:700; color:var(--text-2); }
+.contribution-empty small { display:block; margin-top:4px; font-size:12px; color:var(--text-3); }
+
+/* 運営の基礎ガイド（折りたたみ） */
+.operator-guide {
+  background:var(--surface); border:1px solid var(--border-light); border-radius:var(--r);
+  margin-bottom:28px; overflow:hidden;
+}
+.operator-guide summary {
+  padding:18px 22px; font-size:14px; font-weight:700; color:var(--text-2);
+  cursor:pointer; display:flex; align-items:center; gap:10px;
+  list-style:none; transition:background var(--duration);
+}
+.operator-guide summary::-webkit-details-marker { display:none; }
+.operator-guide summary i { color:var(--navy); }
+.operator-guide summary::after {
+  content:'\f078'; font-family:'Font Awesome 6 Free'; font-weight:900;
+  margin-left:auto; font-size:11px; color:var(--text-3);
+  transition:transform var(--duration);
+}
+.operator-guide[open] summary::after { transform:rotate(180deg); }
+.operator-guide summary:hover { background:var(--bg); }
+.operator-guide-body { padding:4px 22px 22px; }
+
+/* 投稿フォーム */
+.contrib-intro {
+  font-size:13px; color:var(--text-2); line-height:1.7;
+  padding:12px 14px; background:rgba(232,168,56,.1); border-radius:var(--r-sm);
+  margin-bottom:18px;
+}
+.contrib-intro strong { color:var(--coral); }
+.contrib-kind-tabs { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
+.contrib-kind-tab {
+  padding:14px 12px; background:var(--bg); border:2px solid transparent; border-radius:var(--r-sm);
+  display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer;
+  transition:all var(--duration) var(--ease); color:var(--text-2); text-align:center;
+}
+.contrib-kind-tab i { font-size:18px; color:var(--text-3); }
+.contrib-kind-tab span { font-size:13px; font-weight:700; color:var(--text); }
+.contrib-kind-tab small { font-size:11px; color:var(--text-3); }
+.contrib-kind-tab.active { background:var(--surface); border-color:var(--coral); box-shadow:0 2px 8px rgba(232,88,58,.15); }
+.contrib-kind-tab.active i { color:var(--coral); }
+.contrib-row { margin-bottom:16px; }
+.contrib-label { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--text); margin-bottom:6px; }
+.contrib-label i { color:var(--navy); font-size:11px; }
+.contrib-req { padding:1px 7px; background:var(--coral); color:#fff; border-radius:var(--r-sm); font-size:9px; font-weight:800; letter-spacing:.4px; }
+.contrib-input {
+  width:100%; padding:10px 12px; font-size:14px; color:var(--text);
+  background:var(--surface); border:1.5px solid var(--border); border-radius:var(--r-sm);
+  font-family:inherit; transition:border-color var(--duration),box-shadow var(--duration);
+}
+.contrib-input:focus { outline:none; border-color:var(--navy); box-shadow:0 0 0 3px rgba(27,45,91,.1); }
+.contrib-textarea { resize:vertical; min-height:90px; line-height:1.6; }
+.contrib-hint { display:block; margin-top:5px; font-size:11px; color:var(--text-3); line-height:1.5; }
+.contrib-success { text-align:center; padding:30px 16px; }
+.contrib-success-icon { font-size:56px; color:var(--sage); margin-bottom:14px; }
+.contrib-success h3 { font-size:18px; font-weight:700; color:var(--text); margin-bottom:10px; }
+.contrib-success p { font-size:13px; color:var(--text-2); line-height:1.8; }
+
+@media(max-width:600px){
+  .learn-topbar { align-items:flex-start; }
+  .contrib-kind-tabs { grid-template-columns:1fr; }
+  .industry-aggregate .data-summary { grid-template-columns:repeat(2,1fr); }
+}
+
 /* ── 探す TAB ── */
 .explore-toolbar { background:var(--surface); border-bottom:1px solid var(--border); padding:12px 20px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
 .tab-group { display:flex; background:var(--bg-elevated); border-radius:var(--r-sm); overflow:hidden; }
@@ -1032,7 +1178,11 @@ html { scroll-behavior:smooth; }
 <div class="section" id="sectionLearn">
   <div class="learn-content">
     <div id="industryList">
-      <div class="section-heading"><i class="fas fa-briefcase"></i> 業界別ガイド</div>
+      <div class="learn-topbar">
+        <div class="section-heading" style="margin:0;"><i class="fas fa-briefcase"></i> 業界別ガイド</div>
+        <button class="contribute-btn contribute-btn-small" onclick="openContribute('')"><i class="fas fa-pen-to-square"></i> 情報を貢献する</button>
+      </div>
+      <p class="learn-intro">メルボルンで働くメンバーの生の声。トライアルの実態・1日の流れ・採用プロセスを集めています。</p>
       <div class="industry-grid" id="industryGrid"></div>
       <div class="zoom-section">
         <div class="section-heading"><i class="fas fa-video"></i> 先輩の声 — 週1 Zoomイベント</div>
@@ -1284,7 +1434,56 @@ const industryGuides=[
     warnings:['「マッサージ」と称した怪しい店に注意。面接時に店の雰囲気を確認','歩合制の場合、閑散期は収入が不安定になる','自分の体を壊すと元も子もない。無理な施術は断る','労災保険の有無を確認する'],
     quotes:[{text:'時給高めで土日休めるのが最高。体力的にきついけど、やりがいはある',attr:'マッサージ経験11ヶ月・South Yarra'}],
     experienceCards:[{name:'みゆき',months:11,area:'South Yarra',hardest:'英語での施術要望の聞き取り。最初は苦労した',skill:'日本の資格と丁寧な施術。リピーターがつきやすい',advice:'指名制度がある店を選ぶと、頑張りが直接収入に反映される'}],
-    relatedIndustry:'マッサージ'}
+    relatedIndustry:'マッサージ'},
+  {id:'farm',icon:'fa-leaf',name:'ファーム',
+    desc:'セカンドビザ取得の定番。田舎で生活費が激安、貯金が貯まる。体力勝負。',
+    summary:{avgPay:'A$24〜28/h',english:'ほぼ不要',hiring:'紹介 or 現地直接交渉',experience:'投稿募集中'},
+    insights:[
+      {title:'採用で見られるポイント',icon:'fa-user-check',items:['体力と継続性が最重要（すぐ辞める人が多いため）','車の有無で採用率が大きく変わる','「何日働けるか」を明確に言えると強い','日本人コミュニティ経由の紹介が一番確実']},
+      {title:'仕事の実態',icon:'fa-tractor',items:['収穫（picking）は歩合制が多い。早く慣れれば稼げる','朝5時起きが普通。夏は特に早い','シーズン（11月〜4月がピーク）で仕事量が変動','住居はファーム提供（家賃天引き）が一般的']},
+      {title:'最初の1週間でやること',icon:'fa-calendar-check',items:['体を慣らす（1週目は筋肉痛で動けない人多数）','水分補給と日焼け対策を徹底する','作業ペースの速い先輩の動きを観察する','給料の計算方法を確認（時給 or 歩合）']},
+      {title:'暗黙のルール',icon:'fa-eye',items:['88日カウント対象かを必ず事前確認（セカンドビザ要件）','ピッキングは自分の記録を毎日メモ','天候で休みになる日がある（給料なし）','車を持つ人が乗せてあげる文化（ガス代シェア）']}
+    ],
+    warnings:['「セカンドビザ対象」と言いつつカウントされないファームがある — ABN・Payslip確認必須','現金払いで記録が残らない業者は要注意','労災保険なしの業者も存在する','田舎すぎると辞めたくても移動手段がない'],
+    quotes:[],
+    experienceCards:[],
+    relatedIndustry:'ファーム'},
+  {id:'delivery',icon:'fa-bicycle',name:'デリバリー',
+    desc:'Uber Eats・DoorDashなど。自分のペースで働ける。自転車 or 車が必須。',
+    summary:{avgPay:'A$20〜35/h（変動大）',english:'ほぼ不要',hiring:'アプリ登録のみ',experience:'投稿募集中'},
+    insights:[
+      {title:'始めるまでの流れ',icon:'fa-user-check',items:['ABN取得が必要（個人事業主扱い）','Uber/DoorDashアプリに登録 → 書類審査（1〜3日）','自転車 or 車、スマホホルダー、保温バッグを用意','保険（第三者賠償）は自分で加入推奨']},
+      {title:'仕事の実態',icon:'fa-stopwatch',items:['ピークタイム（昼12-14時、夜18-21時）が稼ぎ時','エリアによって単価・注文量が大きく異なる','雨の日はボーナスが出る（注文も増える）','ガソリン代・自転車メンテは自腹']},
+      {title:'稼ぎを最大化するコツ',icon:'fa-chart-line',items:['CBDはライバル多い、郊外の方が単価高い時あり','複数アプリ同時ログインで効率UP','雨・イベント日を狙う','ルート効率を意識（最短距離＋駐輪しやすい場所）']},
+      {title:'暗黙のルール',icon:'fa-eye',items:['ABNは四半期ごとのGST申告が必要','タックスリターンで経費計上を忘れずに（ガス代・スマホ代）','事故に備えて第三者賠償保険は必須','お客さんの写真は絶対撮らない（トラブル防止）']}
+    ],
+    warnings:['ABN登録で税金の自己管理が必須','事故時の責任は基本自分持ち','時給換算すると閑散期は最低賃金以下になることも','自転車の盗難・パンクリスクは自己負担'],
+    quotes:[],
+    experienceCards:[],
+    relatedIndustry:'デリバリー'},
+  {id:'factory',icon:'fa-box',name:'工場／倉庫',
+    desc:'単純作業で英語不要、シフト安定。体力は必要だが学ぶことが少なく始めやすい。',
+    summary:{avgPay:'A$25〜30/h',english:'ほぼ不要',hiring:'派遣会社経由が多い',experience:'投稿募集中'},
+    insights:[
+      {title:'採用で見られるポイント',icon:'fa-user-check',items:['派遣会社の面接は形式的。面接すっぽかさなければほぼ通る','夜勤可能だと時給UP（+20%程度）','体力・長時間立ち仕事に耐えられるか','日本語OKの派遣会社（関西支店、NES等）を経由すると安心']},
+      {title:'仕事の実態',icon:'fa-industry',items:['ピッキング・梱包・仕分けが中心','冷蔵・冷凍倉庫は特別手当あり（寒さ対策必須）','8時間立ちっぱなしが基本','同じ作業の繰り返しで慣れれば楽']},
+      {title:'最初の1週間でやること',icon:'fa-calendar-check',items:['安全靴・作業着を指定通り準備','商品の場所とスキャナーの使い方を覚える','先輩の作業ペースを観察','シフト表の読み方・連絡方法を確認']},
+      {title:'暗黙のルール',icon:'fa-eye',items:['派遣会社を介さず直接雇用に切り替えると時給UPのチャンス','夜勤明けは意外とアジアン街が空いていて便利','冷凍倉庫はインナー・手袋を自分で追加で持参','繁忙期（クリスマス前）は時給が上がる']}
+    ],
+    warnings:['派遣会社のマージンで時給が安くなっている場合あり','「試用期間は低時給」は違法の場合あり','重量物を扱う作業は腰を壊すリスク','契約書の労働時間上限を必ず確認'],
+    quotes:[],
+    experienceCards:[],
+    relatedIndustry:'工場／倉庫'},
+  {id:'other',icon:'fa-briefcase',name:'その他',
+    desc:'上記以外の業界（建設・事務・美容・ガス系など）の情報をメンバーで集める枠。',
+    summary:{avgPay:'—',english:'—',hiring:'—',experience:'投稿募集中'},
+    insights:[
+      {title:'この業界で働いた経験ありますか？',icon:'fa-hand-holding-heart',items:['美容・エステ業界','建設・ハンディマン','事務・オフィスワーク','ガス系（バー・ナイトクラブ）','その他、メルボルンで見つけた意外な仕事','あなたの経験が、これからメルボルンに来る後輩の地図になります']}
+    ],
+    warnings:['現金払いのみの職場は税金・保険の確認を','英語が必須な職場では事前に業界用語を予習','無資格で始められる業界か確認（美容・建設は資格必要なものあり）'],
+    quotes:[],
+    experienceCards:[],
+    relatedIndustry:'その他'}
 ];
 
 const zoomEvents=[
@@ -1292,6 +1491,68 @@ const zoomEvents=[
   {month:'APR',day:'19',title:'ジャパレス vs ローカルカフェ どっちがいい？',guest:'けんじ & ゆい',badge:'パネル形式'},
   {month:'APR',day:'26',title:'クリーニング業界のリアル — 英語ゼロからの就活',guest:'ゆうき（Aussie Clean Co.）',badge:'初開催'}
 ];
+
+// ═══════════════ メンバー貢献データ（知るタブ） ═══════════════
+// kind: 'profile'（業界プロフィール 7項目）/ 'wage'（時給データのみ 4項目）
+// 投稿は即時公開。30日以内はNEWバッジ表示。
+let contributionData=[
+  {id:'C001',kind:'profile',industry:'カフェ',area:'CBD',hourlyPay:26,nickname:'ゆうか',
+    trialReality:'2時間無給。ランチピークに皿洗い＋ホール補助。オーナーが横でずっと見てた。英語は"Table 5 ready"くらい言えればOKだった。',
+    dailyFlow:'8-16時勤務。最初2時間は開店準備（豆の計量・カップ補充）、11時から一気に忙しくなる。休憩は客少ない15分×2回。まかない1食あり。',
+    hiringProcess:'Indeedで応募→翌日オーナーからLINEで連絡→3日後トライアル→当日採用連絡。履歴書より"すぐ来られる""週5入れる"が効いた気がする。',
+    adviceToNext:'最初の3日間はとにかくコーヒー豆の名前を覚えろ。それだけで扱いが変わる。オーナーのJamesは厳しいけど裏表ない人だから正直に聞けば教えてくれる。',
+    createdAt:'2026-04-15'},
+  {id:'C002',kind:'profile',industry:'レストラン（日本食）',area:'Fitzroy',hourlyPay:24,nickname:'けんじ',
+    trialReality:'キッチン見習い、5時間分は時給出た。ピーク時の金曜夜に入れられてて完全に試された。食器の場所を聞くタイミングと、パスタを運ぶスピード見られてた感じ。',
+    dailyFlow:'17-23時。開店前に仕込み1時間、18時から21時までが地獄タイム。22時以降は片付けとまかない。週末は追加で12時間勤務もある。',
+    hiringProcess:'知り合い紹介→店長と15分面談→その場でトライアル日程決定→即採用。日本人ネットワーク経由が一番早い。',
+    adviceToNext:'週末必ず入れないと厳しい。逆に週末さえ入れれば平日は融通きく。中村さん（オーナー）は怖く見えるけどちゃんとしてれば超優しい。',
+    createdAt:'2026-04-10'},
+  {id:'C003',kind:'profile',industry:'クリーニング',area:'St Kilda',hourlyPay:27,nickname:'ゆうき',
+    trialReality:'トライアルなし。面接30分のみ。会社の運営ルールと安全講習の説明を聞いて、翌日から現場。意外とあっさり。',
+    dailyFlow:'朝6時開始、14時終わり。Airbnb物件を1日3-5件回る。車で移動（ガス代は自腹）。お客さんと会うことはほぼない。',
+    hiringProcess:'Facebookの日本人コミュニティで求人発見→LINEで応募→翌日面接→即採用。車持ちが条件だった。',
+    adviceToNext:'朝6時起きが最初の1週間はマジで辛い。でも14時に終わって午後フリーになるのは最高。イヤホン持参してPodcast聴きながら作業すると時間が飛ぶ。',
+    createdAt:'2026-04-05'},
+  {id:'C004',kind:'wage',industry:'カフェ',area:'Fitzroy',hourlyPay:25,nickname:'ゆい',createdAt:'2026-04-12'},
+  {id:'C005',kind:'wage',industry:'レストラン（日本食）',area:'Richmond',hourlyPay:25,nickname:'あやか',createdAt:'2026-04-08'},
+  {id:'C006',kind:'profile',industry:'ファーム',area:'Shepparton',hourlyPay:26,nickname:'たけし',
+    trialReality:'トライアル3日間。いちご摘みで歩合制の練習。最初の日は1時間で1kgも摘めなくて焦った。3日目には5kg/hできるようになって合格。',
+    dailyFlow:'朝5:30起き、6時からピッキング。10時休憩15分、12-13時ランチ、15時終了。天気悪い日は休み（給料なし）。',
+    hiringProcess:'88 Days Australiaで求人発見→電話面接→翌週から現地集合。ファーム寮に住み込み（週$150天引き）。',
+    adviceToNext:'88日カウント対象かを契約前に書面で確認。「払う」と口約束されても実際はカウント外だった人を複数知ってる。Payslipは必ずもらうこと。',
+    createdAt:'2026-04-01'}
+];
+try{const sc=localStorage.getItem('3p_contributions');if(sc)contributionData=JSON.parse(sc);}catch(e){}
+function saveContributions(){localStorage.setItem('3p_contributions',JSON.stringify(contributionData));}
+
+function daysSince(dateStr){
+  if(!dateStr)return 999;
+  const d=new Date(dateStr);
+  const now=new Date();
+  return Math.floor((now-d)/(1000*60*60*24));
+}
+function isNewContribution(c){return daysSince(c.createdAt)<=30;}
+function formatRelativeDate(dateStr){
+  const d=daysSince(dateStr);
+  if(d<1)return '今日';
+  if(d<7)return `${d}日前`;
+  if(d<30)return `${Math.floor(d/7)}週間前`;
+  if(d<90)return `${Math.floor(d/30)}ヶ月前`;
+  return `${Math.floor(d/30)}ヶ月前`;
+}
+function getContributionsByIndustry(industryName){
+  return contributionData.filter(c=>c.industry===industryName).sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+}
+function aggregateIndustryStats(industryName){
+  const items=getContributionsByIndustry(industryName);
+  if(items.length===0)return null;
+  const pays=items.filter(c=>c.hourlyPay).map(c=>c.hourlyPay).sort((a,b)=>a-b);
+  const median=pays.length?(pays.length%2===1?pays[(pays.length-1)/2]:(pays[pays.length/2-1]+pays[pays.length/2])/2):null;
+  const areas=[...new Set(items.map(c=>c.area))];
+  const profiles=items.filter(c=>c.kind==='profile').length;
+  return {count:items.length,median,min:pays[0],max:pays[pays.length-1],areas,profiles};
+}
 
 // ── Housing & Job Data ──
 let housingData=[
@@ -1375,13 +1636,23 @@ function setSection(s){
 
 // ═══════════════ 知る TAB ═══════════════
 function renderIndustryGrid(){
-  document.getElementById('industryGrid').innerHTML=industryGuides.map(g=>`
+  document.getElementById('industryGrid').innerHTML=industryGuides.map(g=>{
+    const contribs=getContributionsByIndustry(g.relatedIndustry);
+    const hasNew=contribs.some(isNewContribution);
+    const stats=aggregateIndustryStats(g.relatedIndustry);
+    const payDisplay=stats?`A$${stats.min}〜${stats.max}/h`:g.summary.avgPay;
+    return `
     <div class="industry-card" onclick="openIndustryDetail('${g.id}')">
+      ${hasNew?'<span class="industry-card-new">NEW</span>':''}
       <div class="industry-icon"><i class="fas ${g.icon}"></i></div>
       <div class="industry-name">${g.name}</div>
       <div class="industry-sub">${g.desc}</div>
-      <div class="industry-stats"><div class="industry-stat"><strong>${g.summary.avgPay}</strong></div><div class="industry-stat">英語：${g.summary.english}</div></div>
-    </div>`).join('');
+      <div class="industry-stats">
+        <div class="industry-stat"><strong>${payDisplay}</strong></div>
+        <div class="industry-stat"><i class="fas fa-comments"></i> ${contribs.length}件</div>
+      </div>
+    </div>`;
+  }).join('');
 }
 function renderZoomEvents(){
   document.getElementById('zoomEvents').innerHTML=zoomEvents.map(e=>`
@@ -1394,26 +1665,247 @@ function renderZoomEvents(){
 function openIndustryDetail(id){
   const g=industryGuides.find(x=>x.id===id);if(!g)return;
   const relatedJobs=jobData.filter(j=>j.industry===g.relatedIndustry);
+  const contributions=getContributionsByIndustry(g.relatedIndustry);
+  const stats=aggregateIndustryStats(g.relatedIndustry);
   document.getElementById('industryList').style.display='none';
   const d=document.getElementById('industryDetail');d.classList.add('show');
+
+  // 自動集計サマリー（投稿から算出） or 運営の初期値
+  const aggregateHtml=stats?`
+    <div class="industry-aggregate">
+      <div class="industry-aggregate-heading"><i class="fas fa-chart-simple"></i> メンバー投稿から自動集計</div>
+      <div class="data-summary">
+        <div class="data-item"><div class="data-val">$${stats.median}</div><div class="data-label">時給中央値</div></div>
+        <div class="data-item"><div class="data-val">$${stats.min}〜${stats.max}</div><div class="data-label">時給レンジ</div></div>
+        <div class="data-item"><div class="data-val">${stats.count}</div><div class="data-label">投稿数</div></div>
+        <div class="data-item"><div class="data-val">${stats.areas.length}</div><div class="data-label">エリア数</div></div>
+      </div>
+    </div>`:`
+    <div class="industry-aggregate industry-aggregate-empty">
+      <div class="industry-aggregate-heading"><i class="fas fa-chart-simple"></i> メンバー投稿から自動集計</div>
+      <p class="industry-aggregate-empty-msg">まだ投稿がありません。最初の投稿者になって、後輩の地図を作りましょう。</p>
+    </div>`;
+
+  // メンバー投稿カード
+  const contributionsHtml=contributions.length?`
+    <div class="contribution-list">
+      ${contributions.map(c=>contributionCardHTML(c)).join('')}
+    </div>`:`
+    <div class="contribution-empty">
+      <i class="fas fa-comment-dots"></i>
+      <p>まだ投稿がありません</p>
+      <small>「${g.name}」で働いているメンバーの声を集めています</small>
+    </div>`;
+
   d.innerHTML=`
     <button class="detail-back" onclick="closeIndustryDetail()"><i class="fas fa-arrow-left"></i> 業界ガイド一覧に戻る</button>
-    <div class="detail-header"><div class="detail-header-top"><div class="detail-icon"><i class="fas ${g.icon}"></i></div><div><h2>${g.name}で働く</h2><div class="detail-desc">${g.desc}</div></div></div></div>
-    <div class="data-summary">
-      <div class="data-item"><div class="data-val">${g.summary.avgPay.replace('A$','').replace('/h','')}</div><div class="data-label">時給 (A$/h)</div></div>
-      <div class="data-item"><div class="data-val">${g.summary.english}</div><div class="data-label">必要な英語力</div></div>
-      <div class="data-item"><div class="data-val">${g.summary.experience}</div><div class="data-label">データの信頼性</div></div>
-      <div class="data-item"><div class="data-val">${relatedJobs.length}件</div><div class="data-label">登録職場数</div></div>
+    <div class="detail-header">
+      <div class="detail-header-top">
+        <div class="detail-icon"><i class="fas ${g.icon}"></i></div>
+        <div><h2>${g.name}で働く</h2><div class="detail-desc">${g.desc}</div></div>
+      </div>
+      <button class="contribute-btn" onclick="openContribute('${g.relatedIndustry}')"><i class="fas fa-pen-to-square"></i> この業界について投稿する</button>
     </div>
-    <div class="info-blocks">${g.insights.map(ins=>`<div class="info-block"><div class="info-block-title"><i class="fas ${ins.icon}"></i> ${ins.title}</div><div class="info-block-content"><ul>${ins.items.map(i=>`<li>${i}</li>`).join('')}</ul></div></div>`).join('')}</div>
-    <div class="warning-block"><div class="warning-block-title"><i class="fas fa-triangle-exclamation"></i> 危険信号 — こんな職場は避けよう</div><ul>${g.warnings.map(w=>`<li>${w}</li>`).join('')}</ul></div>
-    <div class="voice-section"><div class="section-heading"><i class="fas fa-comment-dots"></i> 先輩の声</div>
-      <div class="voice-quotes">${g.quotes.map(q=>`<div class="voice-quote"><p>「${q.text}」</p><div class="voice-attr">— ${q.attr}</div></div>`).join('')}</div>
-      ${g.experienceCards.length?`<div class="voice-cards">${g.experienceCards.map(c=>`<div class="voice-card"><div class="voice-card-header"><div class="voice-avatar" style="background:${avatarColor(c.name)}">${c.name[0]}</div><div><div class="voice-card-name">${c.name}</div><div class="voice-card-meta">${g.name}経験${c.months}ヶ月 · ${c.area}</div></div></div><div class="voice-card-item"><strong>一番大変だったこと</strong><br>${c.hardest}</div><div class="voice-card-item"><strong>一番役立ったスキル</strong><br>${c.skill}</div><div class="voice-card-item"><strong>次の人へのアドバイス</strong><br>${c.advice}</div></div>`).join('')}</div>`:''}</div>
+
+    ${aggregateHtml}
+
+    <div class="section-heading contribution-heading"><i class="fas fa-comments"></i> メンバーの声（${contributions.length}件）</div>
+    ${contributionsHtml}
+
+    <details class="operator-guide">
+      <summary><i class="fas fa-book"></i> 運営の基礎ガイド（クリックで展開）</summary>
+      <div class="operator-guide-body">
+        <div class="info-blocks">${g.insights.map(ins=>`<div class="info-block"><div class="info-block-title"><i class="fas ${ins.icon}"></i> ${ins.title}</div><div class="info-block-content"><ul>${ins.items.map(i=>`<li>${i}</li>`).join('')}</ul></div></div>`).join('')}</div>
+        <div class="warning-block"><div class="warning-block-title"><i class="fas fa-triangle-exclamation"></i> 危険信号 — こんな職場は避けよう</div><ul>${g.warnings.map(w=>`<li>${w}</li>`).join('')}</ul></div>
+        ${g.quotes.length||g.experienceCards.length?`
+        <div class="voice-section">
+          <div class="section-heading"><i class="fas fa-comment-dots"></i> 初期の先輩の声</div>
+          <div class="voice-quotes">${g.quotes.map(q=>`<div class="voice-quote"><p>「${q.text}」</p><div class="voice-attr">— ${q.attr}</div></div>`).join('')}</div>
+          ${g.experienceCards.length?`<div class="voice-cards">${g.experienceCards.map(c=>`<div class="voice-card"><div class="voice-card-header"><div class="voice-avatar" style="background:${avatarColor(c.name)}">${c.name[0]}</div><div><div class="voice-card-name">${c.name}</div><div class="voice-card-meta">${g.name}経験${c.months}ヶ月 · ${c.area}</div></div></div><div class="voice-card-item"><strong>一番大変だったこと</strong><br>${c.hardest}</div><div class="voice-card-item"><strong>一番役立ったスキル</strong><br>${c.skill}</div><div class="voice-card-item"><strong>次の人へのアドバイス</strong><br>${c.advice}</div></div>`).join('')}</div>`:''}
+        </div>`:''}
+      </div>
+    </details>
+
     ${relatedJobs.length?`<div class="related-jobs"><div class="section-heading"><i class="fas fa-store"></i> この業界の登録職場</div>${relatedJobs.map(j=>`<div class="related-link" onclick="setSection('explore');setMode('job');setTimeout(()=>openJobModal('${j.id}'),100)"><div><div class="related-link-text">${j.name}</div><div class="related-link-sub">${j.area} · ${j.payRange}/h · ${statusLabel(j.status)}</div></div><i class="fas fa-chevron-right"></i></div>`).join('')}</div>`:''}`;
   window.scrollTo(0,0);
 }
+
+function contributionCardHTML(c){
+  const newBadge=isNewContribution(c)?`<span class="contribution-new-badge">NEW</span>`:'';
+  const dateLabel=formatRelativeDate(c.createdAt);
+  const avatar=`<div class="contribution-avatar" style="background:${avatarColor(c.nickname||'?')}">${(c.nickname||'?')[0]}</div>`;
+  const header=`
+    <div class="contribution-header">
+      ${avatar}
+      <div class="contribution-meta">
+        <div class="contribution-name">${c.nickname||'匿名'}${newBadge}</div>
+        <div class="contribution-sub">${c.area} · 時給 A$${c.hourlyPay} · ${dateLabel}</div>
+      </div>
+    </div>`;
+  if(c.kind==='wage'){
+    return `<div class="contribution-card contribution-wage">${header}<div class="contribution-tag"><i class="fas fa-dollar-sign"></i> 時給データのみ</div></div>`;
+  }
+  return `<div class="contribution-card">
+    ${header}
+    <div class="contribution-field"><div class="contribution-field-label"><i class="fas fa-stopwatch"></i> トライアルの実態</div><div class="contribution-field-body">${escapeHtml(c.trialReality||'')}</div></div>
+    <div class="contribution-field"><div class="contribution-field-label"><i class="fas fa-clock-rotate-left"></i> 1日の流れ・雰囲気</div><div class="contribution-field-body">${escapeHtml(c.dailyFlow||'')}</div></div>
+    <div class="contribution-field"><div class="contribution-field-label"><i class="fas fa-handshake"></i> 採用プロセス</div><div class="contribution-field-body">${escapeHtml(c.hiringProcess||'')}</div></div>
+    <div class="contribution-field"><div class="contribution-field-label"><i class="fas fa-comment"></i> 後輩への一言</div><div class="contribution-field-body">${escapeHtml(c.adviceToNext||'')}</div></div>
+  </div>`;
+}
+
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
 function closeIndustryDetail(){document.getElementById('industryDetail').classList.remove('show');document.getElementById('industryList').style.display='block';}
+
+// ═══════════════ 投稿フォーム（知るタブ） ═══════════════
+const CONTRIB_INDUSTRIES=['カフェ','レストラン（日本食）','クリーニング','マッサージ','ファーム','デリバリー','工場／倉庫','その他'];
+const CONTRIB_AREAS=['CBD','Fitzroy','Carlton','Richmond','South Yarra','St Kilda','Brunswick','South Melbourne','Footscray','Clayton','その他郊外','地方（田舎）'];
+let contribKind='profile',contribData={};
+
+function openContribute(presetIndustry){
+  contribKind='profile';
+  contribData={industry:presetIndustry||'',area:'',hourlyPay:'',nickname:'',trialReality:'',dailyFlow:'',hiringProcess:'',adviceToNext:''};
+  renderContributeModal();
+  document.getElementById('submitOverlay').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeContribute(){
+  document.getElementById('submitOverlay').classList.remove('show');
+  document.body.style.overflow='';
+}
+function setContribKind(k){
+  contribKind=k;
+  collectContribFields();
+  renderContributeModal();
+}
+function collectContribFields(){
+  const form=document.getElementById('contribForm');if(!form)return;
+  form.querySelectorAll('[data-contrib]').forEach(el=>{contribData[el.dataset.contrib]=el.value;});
+}
+function renderContributeModal(){
+  const industryOptions=CONTRIB_INDUSTRIES.map(i=>`<option value="${i}" ${contribData.industry===i?'selected':''}>${i}</option>`).join('');
+  const areaOptions=CONTRIB_AREAS.map(a=>`<option value="${a}" ${contribData.area===a?'selected':''}>${a}</option>`).join('');
+
+  const commonFields=`
+    <div class="contrib-row">
+      <label class="contrib-label"><i class="fas fa-briefcase"></i> 業界 <span class="contrib-req">必須</span></label>
+      <select class="contrib-input" data-contrib="industry"><option value="">選択してください</option>${industryOptions}</select>
+    </div>
+    <div class="contrib-row">
+      <label class="contrib-label"><i class="fas fa-location-dot"></i> エリア <span class="contrib-req">必須</span></label>
+      <select class="contrib-input" data-contrib="area"><option value="">選択してください</option>${areaOptions}</select>
+    </div>
+    <div class="contrib-row">
+      <label class="contrib-label"><i class="fas fa-dollar-sign"></i> 時給（A$/h） <span class="contrib-req">必須</span></label>
+      <input type="number" class="contrib-input" data-contrib="hourlyPay" value="${escapeHtml(contribData.hourlyPay||'')}" placeholder="例: 26" min="15" max="60" step="0.5">
+    </div>`;
+
+  const profileFields=`
+    <div class="contrib-row">
+      <label class="contrib-label"><i class="fas fa-stopwatch"></i> トライアルの実態 <span class="contrib-req">必須</span></label>
+      <textarea class="contrib-input contrib-textarea" data-contrib="trialReality" rows="4" placeholder="例: 2時間無給、ランチピークに皿洗い＋ホール補助。オーナーが横でずっと見てた。英語は&quot;Table 5 ready&quot;くらい言えればOKだった">${escapeHtml(contribData.trialReality||'')}</textarea>
+    </div>
+    <div class="contrib-row">
+      <label class="contrib-label"><i class="fas fa-clock-rotate-left"></i> 1日の仕事の流れ・雰囲気 <span class="contrib-req">必須</span></label>
+      <textarea class="contrib-input contrib-textarea" data-contrib="dailyFlow" rows="4" placeholder="例: 8-16時勤務、最初2時間は仕込み、11時から忙しくなる。休憩は15分、まかないあり">${escapeHtml(contribData.dailyFlow||'')}</textarea>
+    </div>
+    <div class="contrib-row">
+      <label class="contrib-label"><i class="fas fa-handshake"></i> どうやって受かった？採用プロセス <span class="contrib-req">必須</span></label>
+      <textarea class="contrib-input contrib-textarea" data-contrib="hiringProcess" rows="4" placeholder="例: Indeedで応募→翌日LINE→3日後トライアル→その日に採用連絡。&quot;すぐ来れる&quot;が効いた">${escapeHtml(contribData.hiringProcess||'')}</textarea>
+    </div>
+    <div class="contrib-row">
+      <label class="contrib-label"><i class="fas fa-comment"></i> 後輩への一言（警告 or Tip） <span class="contrib-req">必須</span></label>
+      <textarea class="contrib-input contrib-textarea" data-contrib="adviceToNext" rows="4" placeholder="例: 給料現金払いだからタックス確認必須／忙しい時間帯のシフトしかくれない など">${escapeHtml(contribData.adviceToNext||'')}</textarea>
+    </div>`;
+
+  const nicknameField=`
+    <div class="contrib-row">
+      <label class="contrib-label"><i class="fas fa-user"></i> ニックネーム <span class="contrib-req">必須</span></label>
+      <input type="text" class="contrib-input" data-contrib="nickname" value="${escapeHtml(contribData.nickname||'')}" placeholder="例: たかし（本名非推奨）" maxlength="20">
+      <small class="contrib-hint">他のメンバーに表示される名前。本名でなくてOK。</small>
+    </div>`;
+
+  const kindTabs=`
+    <div class="contrib-kind-tabs">
+      <button type="button" class="contrib-kind-tab ${contribKind==='profile'?'active':''}" onclick="setContribKind('profile')">
+        <i class="fas fa-pen-to-square"></i>
+        <span>業界プロフィール</span>
+        <small>7項目・じっくり書く</small>
+      </button>
+      <button type="button" class="contrib-kind-tab ${contribKind==='wage'?'active':''}" onclick="setContribKind('wage')">
+        <i class="fas fa-dollar-sign"></i>
+        <span>時給データのみ</span>
+        <small>4項目・サクッと</small>
+      </button>
+    </div>`;
+
+  const body=contribKind==='profile'
+    ? `${commonFields}${profileFields}${nicknameField}`
+    : `${commonFields}${nicknameField}`;
+
+  document.getElementById('submitModalContent').innerHTML=`
+    <div class="submit-modal-header">
+      <div class="submit-modal-title"><i class="fas fa-pen-to-square"></i> 情報を貢献する</div>
+      <button class="submit-modal-close" onclick="closeContribute()">×</button>
+    </div>
+    <div class="submit-form-body">
+      ${kindTabs}
+      <p class="contrib-intro">あなたの経験が、次にメルボルンに来る後輩の地図になります。<strong>投稿は即時公開されます。</strong></p>
+      <form id="contribForm" onsubmit="return false;">
+        ${body}
+      </form>
+    </div>
+    <div class="submit-form-nav">
+      <button class="btn-fn btn-fn-back" onclick="closeContribute()"><i class="fas fa-xmark"></i> キャンセル</button>
+      <button class="btn-fn btn-fn-submit" onclick="finalizeContribute()"><i class="fas fa-paper-plane"></i> 投稿する</button>
+    </div>`;
+}
+function finalizeContribute(){
+  collectContribFields();
+  // バリデーション
+  const required=['industry','area','hourlyPay','nickname'];
+  if(contribKind==='profile')required.push('trialReality','dailyFlow','hiringProcess','adviceToNext');
+  const missing=required.filter(k=>!String(contribData[k]||'').trim());
+  if(missing.length){alert('すべての必須項目を入力してください。');return;}
+  const pay=parseFloat(contribData.hourlyPay);
+  if(isNaN(pay)||pay<15||pay>60){alert('時給は A$15〜60 の範囲で入力してください。');return;}
+
+  const newEntry={
+    id:'C'+Date.now().toString().slice(-6),
+    kind:contribKind,
+    industry:contribData.industry,
+    area:contribData.area,
+    hourlyPay:pay,
+    nickname:contribData.nickname.trim(),
+    createdAt:new Date().toISOString().slice(0,10)
+  };
+  if(contribKind==='profile'){
+    newEntry.trialReality=contribData.trialReality.trim();
+    newEntry.dailyFlow=contribData.dailyFlow.trim();
+    newEntry.hiringProcess=contribData.hiringProcess.trim();
+    newEntry.adviceToNext=contribData.adviceToNext.trim();
+  }
+  contributionData.unshift(newEntry);
+  saveContributions();
+
+  document.getElementById('submitModalContent').innerHTML=`
+    <div class="submit-modal-header"><div class="submit-modal-title"><i class="fas fa-check-circle" style="color:var(--sage);"></i> 投稿完了</div><button class="submit-modal-close" onclick="closeContribute()">×</button></div>
+    <div class="submit-form-body">
+      <div class="contrib-success">
+        <div class="contrib-success-icon"><i class="fas fa-circle-check"></i></div>
+        <h3>ありがとうございます！</h3>
+        <p>あなたの投稿が「${escapeHtml(newEntry.industry)}」の業界ページに反映されました。<br>次の後輩の地図になります。</p>
+      </div>
+    </div>
+    <div class="submit-form-nav">
+      <button class="btn-fn btn-fn-submit" onclick="afterContributeSuccess('${escapeHtml(newEntry.industry)}')"><i class="fas fa-arrow-right"></i> 業界ページを見る</button>
+    </div>`;
+}
+function afterContributeSuccess(industryName){
+  closeContribute();
+  const guide=industryGuides.find(g=>g.relatedIndustry===industryName);
+  if(guide)openIndustryDetail(guide.id);
+}
 
 // ═══════════════ 探す TAB ═══════════════
 let currentMode='housing',currentView='list',favFilter='all',activeChips={},searchQuery='',map,markers=[],modalPhotoIndex=0,modalPhotos=[];
